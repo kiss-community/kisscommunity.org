@@ -1,6 +1,8 @@
-name: preview
+name: ipfs
 
-on: [ merge ]
+on:
+  push:
+    branches: main
 
 jobs:
   preview:
