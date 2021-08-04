@@ -1,0 +1,16 @@
+name: preview
+
+on: [ merge ]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: upload to IPFS
+        uses: aquiladev/ipfs-action@v0.1.6
