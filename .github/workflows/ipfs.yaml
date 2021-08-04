@@ -16,3 +16,5 @@ jobs:
 
       - name: upload to IPFS
         uses: aquiladev/ipfs-action@v0.1.6
+        with:
+          path: ./
