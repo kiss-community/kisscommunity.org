@@ -1,4 +1,26 @@
+/* OpenSans font */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('OpenSans-Semibold.ttf');
+}
+
+/* Page styles */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
+    margin: 0;
     background-color: #CFD8DC;
     font-family: "Open Sans", sans-serif;
     color: #263238;
@@ -41,11 +63,13 @@ main h4 {
 main ul {
     padding-left: 1rem;
     list-style-type: square;
+    margin: 0 0 2.5rem 1.5rem;
 }
 
 main li {
     font-weight: 400;
     font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 footer {
