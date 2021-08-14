@@ -1,0 +1,83 @@
+/* OpenSans font */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('OpenSans-Semibold.ttf');
+}
+
+/* Page styles */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #CFD8DC;
+    font-family: "Open Sans", sans-serif;
+    color: #263238;
+}
+
+header {
+    padding: 4rem 0 4rem 0;
+}
+
+header h1 {
+    font-weight: 600;
+}
+
+a {
+    color: inherit;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #607D8B;
+}
+
+blockquote {
+    margin: 0 0 1rem 0;
+    padding: 0.8rem 0 0.8rem 1.2rem;
+    background-color: #B0BEC5;
+    border-left: 5px solid #455A64;
+}
+
+main {
+    padding: 0 0 6rem 0;
+}
+
+main h4 {
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom:2px solid #455A64;
+}
+
+main ul {
+    padding-left: 1rem;
+    list-style-type: square;
+    margin: 0 0 2.5rem 1.5rem;
+}
+
+main li {
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 0 0 4rem 0;
+}
+
+footer h5 {
+    font-weight: 600;
+    margin: 0;
+}
