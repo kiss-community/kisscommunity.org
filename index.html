@@ -3,49 +3,77 @@
     <head>
         <title>KISS - Community</title>
         <meta charset="utf-8">
-        <meta name="description" content="Kiss linux community">
+        <meta name="description" content="KISS Linux Community">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./css/skeleton.css" rel="stylesheet">
-        <link href="./css/style.css" rel="stylesheet">
-        <link href="./css/style-dark.css" rel="stylesheet">
+        <style>
+            html {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+
+            body {
+              max-width: 38em;
+              margin: auto;
+              color: #4a4a4a;
+              background-color: #f9f9f9; }
+
+
+            blockquote {
+              margin: 0 0 1rem 0;
+              padding: 0.5rem;
+              border-left: 0.25rem solid gray; }
+
+            a {
+              text-decoration: none;
+              color: #1d7484; }
+              a:hover {
+                color: #982c61;
+                border-bottom: 2px solid #4a4a4a; }
+              a:visited {
+                color: #144f5a; }
+
+            @media (max-width: 684px) {
+              body {
+                font-size: 1.53rem; } }
+
+            @media (max-width: 382px) {
+              body {
+                font-size: 1.35rem; } }
+
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: #222222;
+                    color: #c9c9c9; } }
+        </style>
     </head>
 
     <body>
         <header>
-            <div class="container">
-                <h1>KISS Linux Community</h1>
-                <blockquote>when dylan says "no", we say "maybe"</blockquote>
-                <blockquote><a href="https://kisslinux.org/">KISS Linux</a> is an independent Linux(R) distribution with a focus on simplicity and the concept of less is more.
-            </div>
+            <h1>KISS Linux Community</h1>
+            <blockquote>when dylan says "no", we say "maybe"</blockquote>
         </header>
 
         <main>
-            <div class="container">
-                <div class="row">
-                    <div class="one-half column">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li>Chat over <a href="ircs://irc.libera.chat:6697/kisslinux">IRC</a></li>
-                            <li>Chat <a href="https://web.libera.chat/#kisslinux">on the web</a></li>
-                            <li>Browse <a href="https://libera.irclog.whitequark.org/kisslinux">the latest chat logs</a></li>
-                        </ul>
-                    </div>
+            <h2>Connect</h2>
+            <ul>
+                <li>Chat over <a href=ircs://irc.libera.chat:6697/kisslinux>IRC</a>
+                <li>Chat <a href=https://web.libera.chat/#kisslinux>on the web</a>
+                <li>Browse <a href=https://libera.irclog.whitequark.org/kisslinux>the latest chat logs</a>
+            </ul>
 
-                    <div class="one-half column">
-                        <h4>Discover</h4>
-                        <ul>
-                            <li>Search through <a href="https://jedahan.com/kiss-find">all community packages</a></li>
-                            <li>Discover more <a href="https://github.com/kiss-community/awesome-kiss">awesome kiss projects</a></li>
-                            <li>Visit our <a href="https://github.com/kiss-community/">community github</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <h2>Discover</h2>
+            <ul>
+                <li>Search through <a href=https://jedahan.com/kiss-find>all community packages</a>
+                <li>Discover more <a href=https://github.com/kiss-community/awesome-kiss>awesome kiss projects</a>
+                <li>Visit our <a href=https://github.com/kiss-community>community github</a>
+            </ul>
+
+            <h2>Learn</h2>
+            <ul>
+                <li>Read <a href=https://kisslinux.org>the official documentation</a>
+            </ul>
         </main>
 
         <footer>
-            <div class="container">
-                <h5>KISS Community 2021</h5>
-                Improve this site on <a href="https://github.com/kiss-community/kisscommunity.org">our website repo</a>
-            </div>
+            Improve this site on <a href=https://github.com/kiss-community/kisscommunity.org>our website repo</a>
         </footer>
+    </body>
+</html>
