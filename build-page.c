@@ -93,7 +93,7 @@ int spawn_wait(char **argv) {
   if (wait(&status) == -1)
     return -1;
 
-  return WIFEXITED(status) ? 0 : -1;
+  return WIFEXITED(status) ? WEXITSTATUS(status) ? -1 : 0 : -1;
 }
 
 void print_name(const char *name) {
