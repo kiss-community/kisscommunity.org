@@ -103,9 +103,7 @@ void print_name(const char *name) {
     putchar((c == '_' || c == '-') ? ' ' : c);
 }
 
-void print_nav_bar(char *domain) {
-  struct domain *d;
-
+void print_nav_bar(void) {
   puts("<div id=\"menu\">");
   puts("\t<a href=\"/\"><b>KISS Community Wiki</b></a>\n");
 
@@ -140,7 +138,7 @@ int has_subdirs(char *this) {
   return dir;
 }
 
-void menu_panel(char *domain, char *page, char *this, int depth) {
+void menu_panel(char *page, char *this, int depth) {
   DIR *dp;
   struct dirent *de;
   char newdir[PATH_MAX];
@@ -187,7 +185,7 @@ void menu_panel(char *domain, char *page, char *this, int depth) {
       for (i = 0; i < depth + 2; ++i)
         putchar('\t');
       puts("<ul>");
-      menu_panel(domain, page, newdir, depth + 1);
+      menu_panel(page, newdir, depth + 1);
       for (i = 0; i < depth + 2; ++i)
         putchar('\t');
       puts("</ul>");
@@ -198,18 +196,18 @@ void menu_panel(char *domain, char *page, char *this, int depth) {
   }
 }
 
-void print_menu_panel(char *domain, char *page) {
+void print_menu_panel(char *page) {
   fputs("<div id=\"nav\">\n\t<ul>\n\t<li>", stdout);
   if (!page)
     puts("<a href=\"/\"><b>Home</b></a></li>");
   else
     puts("<a href=\"/\">Home</a></li>");
-  menu_panel(domain, page, NULL, 0);
+  menu_panel(page, NULL, 0);
   puts("\t</ul>");
   puts("</div>");
 }
 
-void print_content(char *domain, char *page) {
+void print_content(char *page) {
   char indexmd[PATH_MAX];
   char indextxt[PATH_MAX];
   char *argv[] = {CONVERTER, indexmd, NULL};
@@ -223,7 +221,7 @@ void print_content(char *domain, char *page) {
   if (stat_isfile(indexmd)) {
     fflush(stdout);
     if (spawn_wait(argv) == -1)
-      die_perror("spawn: %s/%s/%s", domain, page, indexmd);
+      die_perror("spawn: %s/%s", page, indexmd);
   } else if (stat_isfile(indextxt)) {
     puts("<pre>");
     FILE *fptr = fopen(indextxt, "r");
@@ -265,43 +263,28 @@ int has_index(char *this) {
   return index;
 }
 
-void usage(char *argv0) { die("usage: %s [-g] directory", argv0); }
+void usage(char *argv0) { die("usage: %s directory", argv0); }
 
 int main(int argc, char *argv[]) {
-  char *domain = NULL, *page;
-  int i, j;
+  char *dir, *page;
 
-  for (i = 1; i < argc; i++) {
-    if (argv[i][0] != '-') {
-      if (domain)
-        usage(argv[0]);
-      domain = argv[i];
-      continue;
-    }
-    for (j = 1; j < argv[i][j]; j++) {
-      switch (argv[i][j]) {
-      default:
-        usage(argv[0]);
-      }
-    }
-  }
-  if (domain == NULL)
-    usage(argv[0]);
+  if (argc != 2)
+      usage(argv[0]);
+  dir = argv[1];
 
-  domain = xstrdup(domain);
-  if ((page = strchr(domain, '/'))) {
+  if ((page = strchr(dir, '/'))) {
     *page++ = '\0';
     if (strlen(page) == 0)
       page = NULL;
   }
-  if (chdir(domain) == -1)
-    die_perror("chdir: %s", domain);
+  if (chdir(dir) == -1)
+    die_perror("chdir: %s", dir);
 
   puts(html_header);
-  print_nav_bar(domain);
+  print_nav_bar();
   puts("<div id=\"content\">");
-  print_menu_panel(domain, page);
-  print_content(domain, page);
+  print_menu_panel(page);
+  print_content(page);
   puts("</div>\n");
   print_footer();
 
