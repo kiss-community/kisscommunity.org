@@ -25,8 +25,8 @@ char *html_header =
     "</head>\n";
 
 char *html_nav_bar = "\t<span class=\"right\">\n"
-                     "\t\t<a href=\"//dl.suckless.org\">download</a>\n"
-                     "\t\t<a href=\"//git.suckless.org\">source</a>\n"
+                     "\t\t<a href=\"https://github.com/kiss-community\">Github</a>\n"
+                     "\t\t<a href=\"https://kisslinux.org\">Official site</a>\n"
                      "\t</span>\n";
 
 char *html_footer = "</html>\n";
@@ -173,11 +173,11 @@ void menu_panel(char *domain, char *page, char *this, int depth) {
       putchar('\t');
     fputs("<li>", stdout);
     if (highlight) {
-      printf("<a href=\"//%s/%s/\"><b>", domain, newdir);
+      printf("<a href=\"/%s/\"><b>", newdir);
       print_name(d);
       fputs("/</b></a>", stdout);
     } else {
-      printf("<a href=\"//%s/%s/\">", domain, newdir);
+      printf("<a href=\"/%s/\">", newdir);
       print_name(d);
       fputs("/</a>", stdout);
     }
