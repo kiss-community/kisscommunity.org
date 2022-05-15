@@ -16,9 +16,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Build smu
-        run: cd smu && make install
-
       - name: Build
         run: make
 
