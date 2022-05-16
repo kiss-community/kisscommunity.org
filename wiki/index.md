@@ -6,6 +6,9 @@
 
 We're on irc at #kisslinux on [libera.chat](irc://irc.libera.chat) [(logs are available here)](https://libera.irclog.whitequark.org/kisslinux).
 
-Development occurs on [Github/kiss-community](https://github.com/kiss-community/)
-
-[Community package listing](https://jedahan.com/kiss-find)
+## Important links
+- [$/kiss-community](https://github.com/kiss-community)
+- [$/kiss-community/awesome-kiss](https://github.com/kiss-community/awesome-kiss)
+- [Community package listing](https://jedahan.com/kiss-find)
+- [Official website](https://kisslinux.org)
+- [$/kisslinux](https://github.com/kisslinux)
