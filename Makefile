@@ -19,3 +19,5 @@ smu/smu:
 
 clean:
 	rm -f build-page
+
+.PHONY: clean
