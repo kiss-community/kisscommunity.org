@@ -21,6 +21,7 @@ char *html_header =
     "<head>\n"
     "\t<meta charset=\"utf-8\"/>\n"
     "\t<title>KISS Community Wiki</title>\n"
+    "\t<link rel=\"icon\" href=\"data:image/gif;base64,R0lGODlhEAAQAPEDAAAAAP8AAP8A/////yH5BAX//wMALAAAAAAQABAAAAIlnB+ni8kf4mNRzmbvqO6CD2pg6AmmAIgnKo6p57ajTE7ua8dKAQA7\"/>\n"
     "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>\n"
     "</head>\n";
 
