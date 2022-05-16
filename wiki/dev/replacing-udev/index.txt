@@ -1,0 +1,116 @@
+REPLACING UDEV
+________________________________________________________________________________
+
+As of the 20/01/2020, it is now possible to replace eudev with libudev-zero and
+the device manager of your choosing. This Wiki page will cover replacing eudev
+with busybox mdev, however the steps are more or less the same for all other
+device managers (smdev, vdev, ...).
+
+
+BENEFITS
+________________________________________________________________________________
+
+- Use any device manager, swap between them or use none at all.
+- Alternatives are simpler and lighter.
+- Faster boot process.
+
+
+PURGING EUDEV
+________________________________________________________________________________
+
+* Disable the udevd service
+
+  # unlink /var/service/udevd
+
+
+* Remove the eudev package
+
+  The removal is forced as the packages which depend on eudev will be rebuilt.
+
+  $ KISS_FORCE=1 kiss r eudev
+
+
+* Generate a list of all packages which need to be rebuilt
+
+  $ kiss-revdepends eudev
+  libinput/depends:eudev
+  xorg-server/depends:eudev
+
+
+* Build libudev-zero
+
+  $ kiss b libudev-zero && kiss i libudev-zero
+
+
+* Rebuild all required packages
+
+  NOTE: Some packages may have a mandatory dependency on eudev. You may receive
+        errors when attempting to rebuild them. Simply re-install eudev until
+        you are able to investigate further.
+
+  NOTE: If the package manager pulls in eudev as part of the rebuild process,
+        the package you are trying to rebuild has a mandatory dependency on
+        eudev (and you cannot continue this exercise).
+
+  $ kiss b libinput xorg-server
+
+
+* Verify that the eudev dependence is gone
+
+  The following command should output nothing. If it does not, the outputted
+  packages require a rebuild.
+
+  $ kiss-revdepends eudev
+
+
+CHANGING DEVICE MANAGERS
+________________________________________________________________________________
+
+* busybox mdev
+
+  Simply enable the `mdev` service.
+
+  # ln -s /etc/sv/mdev/ /var/service
+
+
+* uevent helper (Alternate method)
+
+  Modify your KISS hook to install the uevent helper with libudev-zero:
+
+  +--------------------------------------------------------------------------+
+  |                                                                          |
+  |   case $TYPE in                                                          |
+  |       post-build)                                                        |
+  |           case "$PKG" in                                                 |
+  |               libudev-zero)                                              |
+  |                   "${CC:-cc}" contrib/helper.c -o helper                 |
+  |                   install -Dm755 helper "$DEST/usr/bin/uevent-helper"    |
+  |               ;;                                                         |
+  |           esac                                                           |
+  |                                                                          |
+  +--------------------------------------------------------------------------+
+
+  Enable CONFIG_UEVENT_HELPER in your kernel configuration and set
+  CONFIG_UEVENT_HELPER_PATH to /usr/bin/uevent-helper.
+
+  Alternatively, the uevent helper path can be set by the init system.
+
+  # echo "/bin/echo /usr/bin/uevent-helper &ltdir&gt > /proc/sys/kernel/hotplug"
+  #     > /etc/rc.d/uevent-helper.boot
+
+  Replace &ltdir&gt with the path where you want the uevent files to be stored, or
+  leave it empty to use the default path.
+
+
+* Other device managers
+
+  Open an issue in $/kiss-community/init as the init scripts will need support
+  for other device managers.
+
+
+REBOOT
+________________________________________________________________________________
+
+If all went well, you should now be using mdev as your device manager while
+retaining a fully working graphical environment with hotplugging functionality.
+If input doesn't work under Xorg, refer to the Xorg log file for information.

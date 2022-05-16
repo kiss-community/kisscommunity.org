@@ -1,0 +1,14 @@
+SOFTWARE
+________________________________________________________________________________
+
+- @/alsa-utils
+- @/acpid
+- @/dhcpcd
+- @/eiwd
+- @/git
+- @/man-pages
+- @/opendoas
+- @/openssh
+- @/tzdata
+- @/vim
+- @/wpa_supplicant
