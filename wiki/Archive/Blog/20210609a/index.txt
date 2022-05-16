@@ -1,0 +1,233 @@
+Subject 09/06/2021: This month in KISS (#9)!
+From    Dilyn Corner
+Date    Wed, 09 Jun 2021 19:21:00 -0500
+
+Welcome to month 9!
+
+Our dreams of no longer having to patch firefox to remove gtk+2 were dashed ever
+so slightly -- the build system still checks for gtk+2. For now, the patch
+stays. Albeit, more slimmed down. One day, perhaps, firefox will enter 2011.
+
+A bug in how kiss handles dependencies has emerged. While not breaking (or even
+terribly awful), it's still a bug! Checkout the issue for more:
+$/kiss-community/kiss/issues/29
+
+Speaking of dependencies, it was recently asked on IRC which dependencies are
+implicit and which should always be mentioned in the depends file. There isn't
+currently something penned down on this, so I figured I'd write something here
+that can later be documented formally.
+
+Things that can be implicit and left out of the depends file are:
+- git
+- binutils
+- gcc
+- make
+- musl
+- busybox
+
+Basically, you can assume a functioning toolchain and the basic tools supplied
+by busybox. git is implicit because... Well... It's a large part of kiss.
+
+Outside of this short list, dependencies should always be specified.
+
+
+Finally, there was some recent movement on Dylan's GitHub page. $/dylanaraps
+I've said it many times but I'll say it again: if he makes his way back and
+wants the reigns, he's more than welcome to the domain and VPS.
+
+
+And here are all of the changes since the last post! Have a great month.
+
+
+Dilyn Corner (59):
+      libXfixes: bump to 6.0.0
+      zstd: bump to 1.5.0
+      mesa: bump to 21.1.0
+      libxkbcommon: change libexecdir directory
+      pango: bump to 1.48.5
+      libX11: bump to 1.7.1
+      kiss: bump to 5.3.2
+      libdrm: bump to 2.4.106
+      libepoxy: bump to 1.5.8
+      mesa: bump to 21.1.1
+      nodejs: bump to 16.2.0
+      perl: bump to 5.34.0
+      curl: bump to 7.77.0
+      expat: bump to 2.4.1
+      libinput: bump to 1.17.3
+      xfsprogs: bump to 5.12.0
+      xorgproto: bump to 2021.4.99.1
+      m4: bump to 1.4.19
+      alsa-lib: bump to 1.2.5
+      alsa-utils: bump to 1.2.5
+      cmake: bump to 3.20.3
+      libinput: bump to 1.18.0
+      util-linux: bump to 2.37
+      xorgproto: bump to 2021.4.99.2
+      libXi: bump to 1.7.99.2
+      mesa: bump to 21.1.2
+      nodejs: bump to 16.3.0
+      alsa-utils: linux-headers is a make dep
+      alsa-lib: fix broken sound card driver loading
+      alsa-lib: some extra patches as a catch-all fix
+      alsa-utils: small patch, hopefully helps alsactl
+      firefox: bump to 89.0
+      git: bump to 2.32.0
+      libogg: bump to 1.3.5
+      meson: bump to 0.58.1
+      libX11: bump to 1.7.2
+      firefox: Forgot to add second shellcheck disable
+      extra-cmake-modules: bump to 5.82.0
+      feh: bump to 3.7
+      nss: bump to 3.65
+      neovim: update sources, cleanup build. Fixes #401
+      nfs-utils: bump to 2.5.3; adopted
+      libtirpc: bump to 1.3.2; adopted
+      boost: bump to 1.76.0; adopted
+      ccls: bump to 20210330; adopted
+      nvme-cli: bump to 1.14; adopted
+      dsp: drop outdated orphan
+      fetsh: drop outdated orphan
+      fish: drop outdated orphan
+      freerdp: drop outdated orphan
+      rgbds: drop outdated orphan
+      spotifyd: drop outdated orphan
+      svkbd: drop outdated orphan
+      qt5-webengine: rename libXslt dependency (#420)
+      qt5-webengine: update shellcheck code
+      qt5-webengine: disable both shellchecks for now
+      nnn: bump to 4.1, remove fts
+      nss: bump to 3.66
+      nnn: gmake -> make
+
+
+Aaron G (2):
+      sed-i: new package at 0.1
+      sed-i: fix shellcheck warning
+
+AndreiSva (2):
+      added new package slang at 2.3.2
+      most: new package at 5.1.0
+
+Arthur Williams (5):
+      openconnect: new package at 8.10
+      vundle: new package at 0.10.2
+      ccrypt: new package at 1.11
+      libdvdcss: bumped to 1.4.3
+      zathura-cb: new package at 0.1.8
+
+BrentBoyMeBob (1):
+      jansson: new package at 2.13.1 (#439)
+
+Claudia (2):
+      libxml2: update to 2.9.12
+      aerc: reflect git version and add GOPATH=/tmp/community/community
+
+Cédric (15):
+      sc-im: bumped to 0.8.2
+      youtube-dl: bumped to 2021.05.16
+      exiftool: bumped to 12.26
+      fzf: bumped to 0.27.1
+      ytfzf: bumped to 1.1.6
+      gnutls: bumped to 3.6.16
+      azpainter: bumped to 3.0.0
+      fzf: bumped to 0.27.2
+      pandoc-bin: updated to 2.14.0.1
+      poppler: bumped to 21.06.1
+      syncthing: bumped to 1.17.0
+      cups: bumped to 2.3.3op2
+      youtube-dl: bumped to 2021.06.06
+      pandoc-bin: version number fixed
+      azpainter: bumped to 3.0.1
+
+James Davies (1):
+      qemu: update patches, depends.
+
+Jason Eslick (9):
+      bat: bump to version 0.18.1
+      trash-cli: bump to version 0.21.5.11
+      protobuf: bump to version 3.17.0
+      mosh: bump relver for protobuf update
+      trash-cli: bump to version 0.21.5.22
+      powertop: fix depends
+      trash-cli: bump to version 0.21.5.25
+      sgt-puzzles: bump to version 20210526
+      protobuf: bump to version 3.17.3
+
+Kyryl Melekhin (1):
+      radare2: new package 5.3.0
+
+Liam Warden (1):
+      gsl: bump to 2.7
+
+Michele Zuccalà (1):
+      pmount: new package at 0.9.23 (#399)
+
+Muhammad Herdiansyah (4):
+      tmux: update to 3.2
+      rxvt-unicode: update to 9.26
+      age: update to 1.0.0-rc.2
+      cryptsetup: update to 2.3.6
+
+Nihal Jere (5):
+      iproute2: bump to 5.12.0
+      sfeed_curses: bump to 0.9.12
+      dash: bump to 0.5.11.4
+      go: bump to 1.16.5
+      sfeed: bump to 0.9.24
+
+Ominitay (1):
+      i3: fix version file
+
+Raphael (1):
+      berry: bumped to 0.1.8 (#435)
+
+Xiaodong Xu (3):
+      bottom: bumped to 0.6.1
+      procs: bumped to 0.11.5
+      tig: bumped to 2.5.4
+
+Zola (6):
+      exfatprogs: new package at 1.1.1 (#398)
+      glew: resurrection at version 2.2.0
+      glxgears-git: new package, pulls from git
+      fuse2: new package at 2.9.9 (#405)
+      cdrtools: new package at 3.01 (#438)
+      unrar: Package resurrection at 6.0.6
+
+aabacchus (5):
+      catgirl: fix depends
+      pounce: fix depends
+      catgirl: remove dependency on ctags
+      pounce: bump to 2.4
+      catgirl: bump to 1.8
+
+git-bruh (21):
+      webkit2gtk: 2.32.1
+      harfbuzz-icu: 2.8.1
+      lagrange: 1.4.1
+      webkit2gtk: make gst stuff optional again
+      btrfs-progs: 5.12.1
+      p11-kit: new package at 0.23.22
+      gcr: new package at 3.40.0
+      surf : 2.1
+      alacritty: 0.8.0
+      bind: 9.17.13
+      imagemagick: 7.0.11-13
+      kmod: 29
+      lagrange: 1.4.2
+      micro: 2.0.9
+      libxslt: Renamed from libXslt
+      webkit2gtk: fix depends for libxslt rename
+      [ungoogled]chromium: 91.0.4472.77
+      libxslt: fix depends
+      libedit: revived package at 20210522-3.1
+      lagrange: 1.5.0
+      postgresql: new package at 13.3
+
+illiliti (1):
+      ssu: bumped to 0.3.2
+
+mcpcpc (1):
+      fltk: bump to 1.3.6
+

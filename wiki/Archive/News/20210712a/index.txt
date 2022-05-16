@@ -1,0 +1,138 @@
+Subject kiss-community's status
+From    Dilyn Corner <dilyn.corner@tutanota.com>
+Date    Mon, 12 Jul 2021 13:08:00 -0500
+
+Hello all!
+
+Recently, $/dylanaraps arrived back on the scene, making plenty of
+contributions, restoring the previous $/kisslinux org, and doing some incredibly
+major changes to KISS Linux! I know I speak for everyone when I say that I'm
+glad he's back and getting back to what he loves doing.
+
+Dylan has made some posts; I recommend reading them! [0] [1] [2].
+
+Naturally, his coming back has brought up quite the onslaught of questions. I'm
+going to answer as many of them as I can, and hopefully eliminate the confusion
+surrounding all of this :)
+
+
+* First and foremost: the new project URL is kisslinux.xyz.
+
+I do not know what will come of k1sslinux.org.
+Dylan did not/has not asked for the domain or the VPS hosting the mail server or
+the git & fossil mirrors of the repositories. So it seems that he doesn't want
+them, which is totally fine. At present, the site will continue to exist for a
+short while longer, though it should no longer be the reference point for where
+to get information on KISS. The site will eventually simply be a redirect to
+kisslinux.xyz, or cease to exist. There could potentially be a new website,
+which leads me to my next point...
+
+
+* $/kiss-community will continue to exist.
+
+This org came into existence as a way of centralizing the work being done on the
+core parts of KISS, namely the main repositories, init, the wiki, the website,
+and kiss itself. With Dylan back, much of this work is redundant (if not wholly
+confusing to users). As such, $/kiss-community will see some restructuring.
+
+What you can expect:
+$/kiss-community/repo will no longer be the main upstream repository. If you are
+100% on board with the work Dylan is doing at $/kisslinux/repo feel free to
+switch your remotes and carry on as you always have! Please be aware that the
+project has seen some major changes. The switch from Xorg to Wayland shouldn't
+present (many) breaking changes to your setups, but the switch from Libressl to
+Openssl could certainly cause some potentially strange problems. I leave it to
+each user to determine how heavily they're impacted, but if you switch, I
+recommend:
+0) Change remotes (git remote set-url origin https://github.com/kisslinux/repo)
+1) Identifying which packages require libressl (kiss-revdepends libressl)
+2) Download the sources for those packages (kiss d $(kiss-revdepends libressl))
+3) Building and installing openssl (kiss b openssl)
+4) Forcibly removing libressl (KISS_FORCE=1 kiss r libressl)
+5) Rebuild the packages from 1) (kiss b $(kiss-revdepends libressl)).
+
+The switch to Wayland presents a possibly harder hurdle. I would recommend
+simply removing your entire xorg stack (xorg-server, libinput, xf86-*, etc) and
+starting over - many packages saw the elimination of dependencies, options, etc.
+which could cause some... strange issues.
+
+
+* $/kiss-community will serve a different purpose
+
+I've mentioned this on IRC [3], but it's worth saying here:
+    $/kiss-community/repo will not be a suitable upstream location. I have not
+    been using Xorg for many months, and don't want to maintain a fork of KISS.
+    IF anyone is interested in maintaining a libressl+xorg version of the main
+    repository, you are more than welcome to do so AND host it at
+    $/kiss-community - pop into IRC and we can all discuss it :)
+
+
+* Dylan does not intend on hosting a community repository.
+
+$/kiss-community/community will continue to exist to serve its purpose as usual.
+However, it is still governed by the guidestones behind KISS. Packages in it
+should build against whatever exists in $/kisslinux/repo as this is the
+standard. Xorg packages will not be accepted (and should be dropped), openssl
+should replace libressl in dependencies lists, etc. If $/kiss-community/repo
+becomes a xorg+libressl repo, a community project can exist there (making it
+repo/extra, repo/xorg, repo/community).
+
+
+* $/kiss-community can expand
+
+Large projects are welcome to be held under the umbrella of the KISS community
+org which need not keep to the guidestones as strictly! This includes proper
+ports of KISS, KISS with glibc, large projects like KISS-kde or kiss-xfce4, a
+dbus/pipewire/pulseaudio repo, etc. If you would like to maintain something like
+this at $/kiss-community ... hop into IRC :)
+
+
+* $/kiss-community/repo-bin will be broadened
+
+repo-bin was initially for 'time consuming packages' in the main repository.
+This can now be extended to packages in community (like chromium, webengine). If
+you would like to contribute a package to repo-bin... Hop into IRC to discuss!
+
+
+* Certain repositories will be archived
+
+This list includes init, kiss, website, and wiki. There isn't much of a need for
+them. Any contributions meant for there can instead be sent to $/kisslinux :)
+
+
+* IRC and Reddit are now unofficial channels
+
+It would seem Dylan would prefer to stick more closely to simply maintaining the
+project and less time fiddling with IRC and the subreddit. While there have been
+some commits to the repositories that make it seem like Dylan is watching the
+IRC logs, he hasn't been very active in there. These areas will continue under
+their current control structures, though they could potentially change in the
+future. Just be aware that these are now entirely community-run enterprises, and
+aren't to be construed as officially involved with the KISS project. They are
+still, however, still about our beloved distribution :)
+
+
+---
+
+
+I'd like to reiterate: I am not forking KISS, I have no intention of maintaining
+a fork of KISS (outside of the work I've done myself at $/dilyn-corner/KISS-me
+which is... roughly a fork), and KISS is not MY project. It is and always has
+been Dylan's. If you don't like his changes or my decision, you're in luck; the
+distribution was devised in such a way that you can do your own thing. Several
+users are already doing their own work (https://asd.armaanb.net &
+$/ehawkvu/kiss-xorg for instance).
+
+I won't push changes which IMMEDIATELY break your machines, but you should be
+looking to make your relevant migrations in the next week or two.
+
+
+Thank you for your time, and I look forward to this new chapter!
+
+    Dilyn
+
+
+[0] https://kisslinux.xyz/news/20210703a
+[1] https://kisslinux.xyz/news/20210708a
+[2] https://kisslinux.xyz/blog/20210711a
+[3] https://libera.irclog.whitequark.org/kisslinux/2021-07-11#30251868

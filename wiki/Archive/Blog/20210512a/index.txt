@@ -1,0 +1,297 @@
+Subject 12/05/2021: This month in KISS (#8)!
+From    Dilyn Corner
+Date    Wed, 12 May 2021 13:26:00 -0500
+
+Welcome to month 8!
+
+I took a small holiday and thought I had pushed this post before I left. Nope!
+Not a whole lot to discuss this time around, so just some quick updates.
+
+
+- Firefox will soon(tm) no longer require gtk+2 OFFICIALLY! We saw the final
+  cleaning commit here
+$/mozilla/gecko-dev/commit/79e8df83dd3ff34c5d527c6320940292289af570
+
+- A subtle bug in how kiss handles dependencies that resulted in certain
+  packages not being installed at the right time was resolved, thanks to some
+  good troubleshooting work and a very clean patch. Check out the discussions
+  and work here:
+$/kiss-community/kiss/commit/02a6791bbdbe51d9cd1eeb912bf0415a3b90a3b7
+$/kiss-community/kiss/issues/5
+    Additionally, an issue with downloading partial sources was revealed, and
+    a patch will be applied soon!
+
+- The git server and mailing list underwent a migration to a smaller (cheaper)
+  VPS and, outside of a few hiccups, went rather smoothly! This should be the
+  last major change to it for a while. Let me know if you experience any issues!
+
+- The git log at the end of these posts is back, baybeeeee
+
+
+Dilyn Corner (75):
+      curl: bump to 7.76.0
+      nodejs: bump to 15.13.0
+      kiss: bump to 5.2.6
+      base-init: update link in post-install
+      xfsprogs: remove subshell
+      kiss: bump to 5.2.7
+      mpv: bump to 0.33.1
+      sqlite: bump to 3.35.4
+      wpa_supplicant: bump relver for manpage fix
+      libdrm: bump to 2.4.105
+      libva-utils: bump to 2.11.1
+      mesa: bump to 21.0.2
+      nodejs: bump to 15.14.0
+      gcc: bump to 10.3.0
+      libxkbcommon: bump to 1.2.1
+      xf86-input-libinput: bump to 1.0.0
+      gcc: bump mpfr/mpc/gmp versions
+      cmake: bump to 3.20.1
+      ffmpeg: bump to 4.4
+      gdk-pixbuf: bump to 2.42.6
+      glib: bump to 2.68.1
+      meson: bump to 0.57.2
+      cbindgen: bump to 0.19.0
+      cairo: fix checksums
+      xorg-server: bump to 1.20.11
+      curl: bump to 7.76.1
+      kiss: bump to 5.2.8
+      xf86-input-libinput: bump to 1.0.1
+      README: update gpg key
+      kiss: bump to 5.3.0
+      openssh: bump to 8.6p1
+      sqlite: bump to 3.35.5
+      firefox: bump to 88.0
+      firefox-esr: bump to 78.10.0esr
+      nodejs: bump to 16.0.0
+      tiff: bump to 4.3.0
+      mesa: bump to 21.0.3
+      libjpeg-turbo: bump to 2.1.0
+      strace: bump to 5.12
+      atk: fix checksums
+      gcc: bump to 11.1.0
+      llvm: don't include benchmarks/examples/tests/docs
+      libepoxy: bump to 1.5.7
+      cmake: bump to 3.20.2
+      libinput: bump to 1.17.2
+      xorgproto: bump to 2021.4
+      kiss: bump to 5.3.1
+      libressl: bump to 3.3.3
+      freetype-harfbuzz: bump to 2.10.4+2.8.1
+      libass: bump to 0.15.1
+      liberation-fonts: bump to 2.1.4
+      meson: bump to 0.58.0
+      nodejs: bump to 16.1.0
+      libxkbcommon: bump to 1.3.0
+      llvm: bump to 12.0.0
+      rust: bump to 1.52.0
+      firefox: bump to 88.0.1
+      clang: bump to 12.0.0
+      ccache: bump to 4.3
+      mesa: bump to build against llvm 12
+      python: bump to 3.9.5
+      glib: bump to 2.68.2
+      sudo: bump to 1.9.7
+      rust: bump to 1.52.1
+      busybox: bump to 1.33.1
+      Remove update file
+      extra-cmake-modules: bump to 5.81.0
+      nss: bump to 3.64
+      nnn: bump to 4.0
+      crosstool-ng: new package at git
+      crosstool-ng: remove duplicate patch/awk check
+      conky: bump to 1.12.2
+      qt5*: bump to 5.15.3
+      nano: bump to 5.7
+      qt5-webengine: delete vestigial patch
+
+
+Muhammad Herdiansyah (4):
+      libvpx: make it cc-neutral
+      x264: make it cc-neutral
+      zlib: ensure that the library is built with -fPIC
+      xfsprogs: explicitly declare <signal.h>
+
+aabacchus (1):
+      wpa_supplicant: actually install manpages
+
+git-bruh (1):
+      python: 3.9.4, fix virtualenv
+
+Aaron G (3):
+      9base: change maintainer
+      oksh: bump to 6.9
+      oksh: remove non-portable grep option from post-install script
+
+Armaan Bhojwani (7):
+      fortune: new package at git
+      fortune: fix checksums
+      fortune: restructure package
+      fortune: add fortunes, get pkg from tarball
+      scdoc: change maintainer
+      exa: bump to v0.10.1, change maintainer
+      exa: fix manpage install paths
+
+Artem Kobets (2):
+      xmlsec1: update to 1.2.32
+      oath-toolkit: update to 2.6.7
+
+Arthur Williams (2):
+      dzen: also install gadgets
+      evtest: new package at 1.34
+
+Cédric (18):
+      youtube-dl: bumped to 2021.04.01
+      exiftool: bumped to 12.23
+      poppler: bumped to 21.0.4.0
+      sc-im: bumped to 0.8.1
+      fzf: bumped to  0.27.0
+      syncthing: bumped to  1.15.1
+      youtube-dl: bumped to 2021.04.07
+      ytfzf: new package at 1.1.2 (#280)
+      exiftool: bumped to 12.24
+      ytfzf: bumped to 1.1.3
+      ytfzf: bumped to 1.1.4
+      exiftool: bumped to 12.25
+      gnutls: pkgconf make dep added (#325)
+      youtube-dl: bumped to 2021.04.26
+      syncthing: bumped to 1.16.1
+      ytfzf: bumped to 1.1.5
+      poppler: bumped to 21.05.0
+      qpdf: bumped to 10.3.2
+
+Daniel M. Matongo (4):
+      croc: bump to 8.6.12
+      go-ipfs: new package at 0.8.0
+      libgit2: fix build issues (#304)
+      lua: bump to 5.4.3
+
+James Davies (1):
+      qemu: bump to 6.0.0
+
+Jason Eslick (5):
+      sgt-puzzles: bump to version 20210409
+      powertop: bump to 2.14
+      sgt-puzzles: bump to version 20210428
+      trash-cli: bump to version 0.21.4.18
+      protobuf: bump to version 3.16.0
+
+Liam Warden (1):
+      gdb: bump to 10.2
+
+Martin Gulliksson (1):
+      wireguard-tools: 1.0.20210424
+
+Michele Zuccalà (1):
+      libdvdread: new package at 6.1.2 (#354)
+
+Muhammad Herdiansyah (2):
+      irssi: update to 1.2.3
+      rxvt-unicode: force std=c++11
+
+Nihal Jere (11):
+      go: bump to 1.16.3
+      libksba: bump to 1.5.1
+      gnupg2: bump to 2.3.0
+      gnupg2: bump to 2.3.1
+      sfeed_curses: bump to 0.9.11
+      sfeed: bump to 0.9.23
+      cloc: bump to 1.90
+      htop: fix source, generate configure file (hopefully temporary)
+      mutt: bump to 2.0.7
+      bash: bump to 5.1.p8
+      go: bump to 1.16.4
+
+Ominitay (2):
+      lld: new package at 11.1.0 (#258)
+      zig: new package at 0.7.1 (#257)
+
+Raphael (2):
+      berry: new package at 0.1.7 (#274)
+      brownout: new package at 0.4 (#285)
+
+Rio6 (3):
+      vcsh: bump to v1.20190621-4
+      bump versions for the s6 suite:
+      s6-linux-init: bump to 1.0.6.3
+
+Xiaodong Xu (7):
+      bit-bin: bumped to 1.1.1
+      glow-bin: bumped to 1.4.1
+      delta: bumped to 0.7.1
+      lsd: bumped to 0.20.1
+      procs: bumped to 0.11.4
+      rclone: bumped to 1.55.0
+      rclone: bumped to 1.55.1
+
+Zenomat (1):
+      mpd: new package at 0.22.6 (#287)
+
+aabacchus (3):
+      pdfcpu: bump to 0.3.10
+      Add link to new site
+      pdfcpu: bump to 0.3.11
+
+electimon (1):
+      links2: bumped to 2.22.0 and update dependencies
+
+git-bruh (39):
+      ungoogled-chromium: 89.0.4389.114
+      file: 5.40
+      imagemagick: 7.0.11-5
+      glib-networking: 2.68.0
+      gtest: new package at 1.10.0
+      brotli: 1.0.9
+      android-tools: 31.0.0
+      imagemagick: 7.0.11-6
+      axel: new package at 2.17.10
+      ruby: 3.0.1
+      webkit2gtk: 2.32.0
+      icu: 69.1
+      webkit2gtk, libpsl, harfbuzz-icu: bump for icu update (#290)
+      cproc, qbe: new packages at git (#276)
+      fuse: 3.10.3
+      imagemagick: 7.0.11-7
+      cmark-gfm: new package at 0.29.0.gfm.0
+      chroma-bin: new package at 0.8.2
+      libmpc: new package at 1.2.1
+      imagemagick: 7.0.11-8
+      webkit2gtk: fix freezes (#310)
+      libgcrypt: 1.9.3
+      shellcheck-bin: 0.7.2
+      glib-networking: 2.68.1
+      gst-plugins-base: stop subproject cloning (#330)
+      [ungoogled]chromium: 90.0.4430.85
+      imagemagick: 7.0.11-9
+      [ungoogled]chromium: 90.0.4430.93 (#336)
+      webkit2gtk: add new musl patches from void (#338)
+      rbw-bin: new package at 1.2.0 (#337)
+      vis: fix depends
+      bind: 9.17.12
+      imagemagick: 7.0.11
+      lagrange: new package at 1.3.4
+      imagemagick: 7.0.11-11
+      libunistring: new package at 0.9.10
+      lagrange: 1.4.0
+      btrfs-progs: 5.12
+      imagemagick: 7.0.11-12
+
+ilmich (6):
+      mc: new package at 4.8.26
+      mc: fix build script
+      yasm: new package at 1.3.0
+      mplayer: new package at 1.4
+      mplayer: fix configuration file permissions
+      mplayer: Fix build script
+
+mcpcpc (1):
+      kirc: bump to 0.2.6
+
+phoebos (3):
+      catgirl: new package at 1.7
+      pounce: new package at 2.3
+      neomutt: new package at 20210205
+
+zenomat (1):
+      mpc: new package at 0.33
+

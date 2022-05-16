@@ -1,0 +1,164 @@
+Subject 02/07/2021: This month in KISS (#10)!
+From    Dilyn Corner
+Date    Fri, 02 Jul 2021 09:15:00 -0500
+
+Welcome to month 10!
+
+After a long hiatus, filled presumably with an abundance of self-care and
+recentering, Dylan Araps is back lads! Some interesting things have emerged as a
+result -- k1sslinux.xyz (and kisslinux.org has been parked...), a flurry of
+updates to the $/kisslinux website and repo repositories, and kiss has seen a
+litany of pull requests, from small tweaks and fixes, to large-scale bug
+squashing!
+
+Dilyn Corner (2):
+      kiss: fix some extra spaces
+      kiss: bump version
+
+Dylan Araps (8):
+      kiss: Fix incorrect check during updates
+      kiss: do a less shallow clone to enable 'git describe'
+      pkg_install_files: fix internal path issue.
+      kiss-chroot: Mount /dev/shm, /dev/pts, /tmp and /run
+      pkg_checksums: simplify
+      kiss: remove broken directory symlinks
+      kiss: fix bugs with pkg_build
+      kiss: sanitize tmp directory paths
+
+Only time may tell what will happen in the future! I'll provide updates whenever
+I have them. In the meantime, work at $/kiss-community will continue as normal -
+I won't be offended if you change your remotes :)
+
+
+As I said earlier, some very large PRs have made their way onto the
+$/kiss-community/kiss repository. They're quite big, so having some extra people
+helping to break them would be wonderful! They'll slowly filter in over the next
+week.
+
+Until next time!
+    Dilyn
+
+
+Dilyn Corner (28):
+      alsa-utils: fix alsactl restore segfaults; closes #43
+      glib: bump to 2.68.3
+      xkeyboard-config: bump to 2.33
+      grub: bump to 2.06
+      firefox-esr: bump to 78.11.0esr
+      cmake: bump to 3.20.4
+      alsa-lib: bump to 1.2.5.1
+      alsa-utils: bump to 1.2.5.1
+      firefox-esr: update patch/fix build
+      libudev-zero: bump to 0.5.1
+      rust: bump to 1.53.0
+      mesa: bump to 21.1.3
+      sqlite: bump to 3.36.0
+      firefox: bump to 89.0.1
+      libva: bump to 2.12.0
+      cmake: bump to 3.20.5
+      fontconfig: python is a make dep
+      libva-utils: bump to 2.12.0, meson is a make dep
+      nodejs: bump to 16.4.0
+      xf86-input-libinput: bump to 1.1.0
+      firefox: bump to 89.0.2
+      fontconfig: bump to 2.13.94
+      python: bump to 3.9.6
+      libffi: bump to 3.4.2
+      mesa: bumpt o 21.1.4
+      nodejs: bump to 16.4.1
+      pango: bump to 1.48.6
+      kiss: bump to 5.4.0
+
+Aaron G (4):
+      less: change maintainer
+      man-pages-posix: change maintainer
+      Update maintainer email
+      neatvi: drop package
+
+AndreiSva (3):
+      weechat: new package at 3.1
+      weechat: bumped to 3.2
+      slang: change tabs to spaces
+
+Armaan Bhojwani (2):
+      chorizo: new package at 1.0.0
+      chorizo: rename depends
+
+Cédric (8):
+      azpainter: bumped to 3.0.1
+      exiftool: bumped to 12.27
+      pandoc-bin: bumped to 2.14.0.2
+      cups-filters: bumped to 1.28.9
+      exiftool: bumped to 12.28
+      pandoc-bin: bumped to 2.14.0.3
+      azpainter: bumped to 3.0.2
+      ytfzf: bumped to 1.2.0
+
+Dilyn Corner (6):
+      nss: bump to 3.67
+      extra-cmake-modules: bump to 5.83.0
+      nano: bump to 5.8
+      qt5-declarative: fix building with gcc 11.1.0
+      qt5: dtls is not supported currently with libressl
+      qt5-webengine: bump to 5.15.3
+
+Jason Eslick (1):
+      trash-cli: bump to version 0.21.6.10.1
+
+Jonathan Dahan (1):
+      croc: bump to 9.1.6
+
+Kyryl Melekhin (2):
+      radare2: new package 5.3.0
+      radare2: bump to 5.3.1
+
+Liam Warden (1):
+      gnuplot: bump to 5.4.2
+
+Nihal Jere (4):
+      isync: bump to 1.4.2
+      libksba: bump to 1.6.0
+      mutt: bump to 2.1.0
+      bash: add bison as dependency
+
+Ominitay (3):
+      lld: bumped to 12.0.0
+      zig[-git]: dropped package
+      htop: adopt package
+
+Rio6 (1):
+      pass: bump to 1.7.4
+
+Xiaodong Xu (14):
+      procs: bumped to 0.11.8
+      delta: bumped to 0.8.0
+      darkhttpd: new package at 1.13
+      grabc: new package at 1.0.2
+      mg: new package at 6.9
+      procs: bumped to 0.11.9
+      delta: bumped to 0.8.1
+      slides: new package at 0.3.0
+      cwm: new package at 6.7
+      grabc: bumped to 1.1
+      slides: bumped to 0.4.0
+      bottom: bumped to 0.6.2
+      viu: new package at 1.3.0
+      gping: new package at 1.2.1
+
+git-bruh (15):
+      xwallpaper: 0.7.0
+      fuse: 3.10.4
+      imagemagick: 7.0.11-14
+      lagrange: 1.5.1
+      nettle: 3.7.3
+      p11-kit: 0.24.0
+      squashfs-tools: 4.4-git.1
+      libtermkey: fix patch
+      gst-plugins*: Disable tests and introspection
+      imagemagick: 7.1.0-0
+      gtest: 1.11.0
+      lagrange: 1.5.2
+      badwolf: new package at 1.1.0
+      lmdb: new package at 0.9.29 (#496)
+      lariza: 21.06
+

@@ -1,0 +1,259 @@
+Subject Where Do We Go From Here?
+From    Dilyn Corner &lt;dilyn.corner@tutanota.com&gt;
+Date    Tues, 23 Feb 2021 5:00:00 -0500
+
+Where to begin!
+
+First, I would like to thank all of who participated in the poll we recently
+ran! We had over a hundred responses, which by itself I found quite amazing -
+Dylan's little project turns out to be bigger than I had expected. I certainly
+wasn't anticipating the outcome we had, but I appreciate that so many of you
+thought of me. For those of you who didn't want a new BDFL, I do not blame you;
+I myself have been happily maintaining all of my own packages for several months
+now with few issues. The beauty of KISS is that you can be your own BDFL :)
+
+I'm certain many of you are curious what I plan to do with these newfound powers
+and responsibilities, so I thought I would take some time to explain my plans,
+goals, and intentions. I have a tendency to be overly verbose, so I'll break
+this up into sections; feel free to read as much or as little as you'd like.
+
+The Guidestones                                                            [1.0]
+The Package Manager                                                        [2.0]
+The Website                                                                [3.0]
+The Repositories                                                           [4.0]
+Reddit & IRC                                                               [5.0]
+Structure                                                                  [6.0]
+
+
+[1.0] THE GUIDESTONES
+________________________________________________________________________________
+
+I take Dylan quite seriously in his declaration that "[the Guidestones] are a
+set of notes which make KISS... KISS". They're explicit, simple, and focused. I
+think these principles are what have given us the kind of community we have,
+with projects like $/eudaldgr/kiss-live $/wyvertux/wyverkiss $/gkisslinux/grepo
+$/Himmalerin/kiss-wayland springing up to fill the gaps and needs of users, by
+users. And I think the 'by users' part is the most important thing. That users
+want to contribute and explore ideas, concepts, and features make KISS what it
+is - a maleable yet sturdy base on which you can create whatever you want.
+
+Specifically, I see no reason to change the goals that define the main
+repositories. Dylan had previously spoken about switching to Wayland, only when
+it finally became apparant that using Xorg would be essentially impossible. See
+his discussion in IRC here:
+https://freenode.logbot.info/kisslinux/20200912#c5073615
+Drew Devault will yet have his day, it seems.
+
+KISS will continue to target X86_64 primarily, and will be English only. There
+should be few if any new packages added to the core repo. The most complicated
+thing a majority of people want is a graphical environment that runs a
+webbrowser, and that is what they will get. By default, officially supported :)
+
+As such, I see no good reason to change much of the Guidestones. They are in
+place for good reason, and altering them should be a last resort. While my own
+personal repository is quite different from the core repository - strictly using
+Wayland and pursuing software under nonGPL licenses - I have no interest in
+imposing these restrictions on KISS as a whole. If that is something a user
+wants, they can do it themselves, like I did.
+
+The point on the existence of a 'below governance structure' is an important
+one; I do not wish to change this rule, and I will describe at the end what I
+intend to do so that the KISS project can avoid going through these last few
+months again.
+
+
+[2.0] THE PACKAGE MANAGER
+________________________________________________________________________________
+
+Dylan was previously working on K, a version of kiss written in C. Recently,
+$/illiliti/king has taken up a similar project. I commend the effort, and it
+will be interesting to see how it turns out! Much like Dylan said when he
+started working on it, however, I have no plans of changing the fundamentals of
+the package manager much if at all - it is, in my opinion, feature complete, and
+most of our focus on it should be on extensions like kiss-orphans and kiss-graph
+than packing new lines of code into kiss itself.
+
+There have consistently been talks of adding a maintainer and license file to
+packages, adding metadata to the repositories, and otherwise tweaking packages.
+My opinion on the matter is that, without good technical reason for doing so,
+the way packages are made and distributed is precisely the minimum required, and
+maximally efficient. Adding a maintainer file defeats the purpose of using git,
+for instance; while a one-line plaintext file may be easier to parse than git
+log, kiss-maintainer seems to be more than adequate. A license file or a line in
+the version file is interesting, but I don't think ultimately necessary - all
+software in the main repositories is necessarily F(L)OSS; extended concerns
+about which license is used by what package can be answered by simply
+downloading the source and investigating one of the files inside (usually
+COPYING or LICENSE). However, should users wish to install the license file WITH
+the package, I have no issue with allowing a one-liner to the end of community
+build files:
+
+install -Dm644 COPYING "$1/usr/share/$1/$1.$licensename"
+
+This wouldn't violate the package guidelines, it's easily greppable for curious
+users, and everyone else can check the sources.
+
+There are a few small bugs in kiss; the infamous KISS_SU bug which caused a
+flurry of Reddit posts for instance, along with a few other ones. I would hope
+to fix these, and am more than happy to accept patches which add small, quality
+of life changes that do not fundamentally alter the package manager - in my
+eyes, kiss is essentially 'feature complete'.
+
+
+[3.0] THE WEBSITE
+________________________________________________________________________________
+
+With Dylan's disappearance, many things have slowly crumbled. The domain expired
+earlier this month, SSL certificates have expired, and of course the main
+repositories have been untouched. There has been a lot of discussion on IRC
+since January about what to do should Dylan not return before the website
+expires, and a loose plan emerged.
+
+Ideally, we (I, I guess) will be purchasing the domain when it goes up for
+auction sometime in March. This is to ensure some level of continuuity between
+Dylan's time as BDFL and the time we are in now.
+
+Conversations have been had on IRC (we talk a lot on IRC, you should look into
+joining us) and many users showed interest in taking a self-hosted direction
+with many features of KISS instead of relying so much on GitHub, which many
+users take issue with. My primary concern with self-hosting is that we would be
+at the mercy of the hoster. And while I would certainly choose someone
+trustworthy, that doesn't change the fact that we would be relying on a system
+in some closet somewhere in the world. The distributed nature of a host like
+GitHub is useful, if not ultimately necessary.  Mirroring the site, on the other
+hand, I have no real issue with. If people would like to mirror the website or
+the repositories, a few links can be added to the main repositories and site
+mentioning their existence. I will be looking into doing some sort of mirroring
+as well.
+
+Speaking of mirrors, $/mcpcpc has been working on converting the website away
+from the bare-bones, minimalistic plaintext the website is currently utilizing
+and turning it into something more rich. You can find it here https://mcpcpc.com/k1ss
+While his efforts are appreciated, one of the beauties of the site as it stands
+is how simple and lightweight it is - honestly, a feat one sees rarely in the
+Modern Web(tm). I don't intend on making their work the official incarnation of
+the site, but users are certainly more than welcome to use it instead if that is
+what they would prefer. KISS is essentially self-documenting, and bundling the
+website with the package manager is convenient and, I think, best done from the
+simplest sources possible.
+
+People have been talking about switching to Gemini. While this is perhaps
+arguably more inline with our goals and principles than the 'average Web', I
+fear it is far too restrictive - but maybe this is just my 'old man yells at
+clouds' moment. Again, I am not opposed to people mirroring the site to Gemini,
+and I am fine with making reasonable and good changes to the site if that would
+help. And, of course, linking to their work for the users who want that option.
+
+
+[4.0] THE REPOSITORIES
+________________________________________________________________________________
+
+Much like the website, people are curious about where the repositories should be
+- going even as far as to suggest we drop git entirely for fossil.  First and
+foremost, I think switching to fossil is at best incredibly difficult. git is
+so deeply ingrained in the functioning of KISS, a lot of work would have to be
+done for such a transition. That being said, I see no good reason it couldn't
+theoretically be supported - if we do not lock users into coreutils or init, why
+should we lock them into VCS? I will be exploring this soon(tm) in my own
+repository. As it stands, KISS will be sticking to git for a while, if not
+forever.
+
+Gaining access to $/kisslinux is probably never going to happen, so
+hopefully we will be able to telegraph to the world to look elsewhere. An
+interim repository at $/kiss-community was setup by a few members, and I see no
+good reason to change from it - no sense in making users switch to
+Yet Another Upstream ReposiTory.
+
+As far as hosting the repositories on GitHub is concerned, my worries for
+self-hosting the website carry over here. Relying on a black box in someone's
+closet is worse, I think, than on multiple black boxes scattered across the
+world. Our current single point of failure is the BDFL, not the hardware of some
+poor soul. Mirroring the repositories, however, I am fine with.  Honestly, I
+have never done such a thing - the most I've ever hosted is a media server off
+of a screendead laptop in 2008. Hosting outside of GitHub will be explored and
+proper announcements made should something change, but there will always at
+least be a mirror of the repositories on GitHub. Here it was born, and here it
+shall stay.
+
+
+[5.0] REDDIT & IRC
+________________________________________________________________________________
+
+I got notified literally while writing this that my request for Mod privileges
+on the subreddit has been granted, so I suspect several of you will have gotten
+here from there. Hello! While Dylan may not have been hands-off with the
+subreddit by choice but rather by ignorance, I will take a similar track;
+pinning things that are relevant, announcing changes as they come, etc. I'll
+always be around in there, silently watching...
+
+Somebody other than me has submitted a request for the IRC channel.  I'm not
+terribly concerned with the IRC - it barely had moderation to begin with, some
+might say...
+
+Mostly, I'd just like to update the Song of the Day more than once every five
+months :) The IRC channel will continue, under someone's (or noone's) control,
+in perpetuity. No plans for Discord, Matrix, Telegram, Whatsapp, Slack, Teams,
+or Newsgroups. Y'all are more than welcome to start your own, if you'd like. But
+I won't be joining them.
+
+
+[6.0] STRUCTURE
+________________________________________________________________________________
+
+This is, I think, the most important topic to tackle. Obviously we were left out
+in the cold rather abruptly. I didn't terribly mind it - Dylan did after all say
+that he wanted the distro to be easily maintainable my one person. Plus, I don't
+rely on community very much at all for my packages. But most people don't want
+to bother with checking for their own updates and making their own packages; who
+can blame them? Eliminating duplication of effort is important. I don't know how
+long I'll be around (I plan to live forever, so far so good), and I'd like to
+see the repositories, wiki, website, etc. be more resilient and avoid having a
+single point of failure.
+
+The point of having a BDFL is to ensure total control over the direction,
+trajectory, and development of the project. My primary aim is to follow the
+things Dylan specified as closely as possible. The point of a BDFL is NOT to
+disrupt the experience of users, but to ensure consistency and focus for the
+project. When it comes to a Linux distribution, updates in large part means
+security updates and bug fixes. I want to ensure users aren't exposed due to my
+own failure or disappearance. Dylan was resistant to letting other people
+maintain even just community; I have a different take.
+
+* The responsibility of checking packages for correctness and merging PRs in the
+main repositories falls to me, with one extra user having access to the main
+repo and (a potentially different) user having access to community. My intention
+here is not that they have just as much responsibility or authority over the
+repository, but instead to (1) merge PRs and respond to issues should they stay
+open for 'too long', and (2) to ensure that, should something happen to me, the
+repositories carry on. Think of them not as assistants, but failsafes.
+
+* The responsibility of releasing updated tarballs of KISS falls to me. Nobody
+else should feel compelled to do this, unless I'm just *poof* gone.
+
+* The responsibility of keeping up with the website and wiki falls to me, with
+one other, different than the previous persons, also having access.
+
+The point is not to have multiple people in charge. Changes to anything
+regarding the package manager, inclusion in the repositories, adjustments to
+documentation, etc.etc.etc. should all go through me.
+The point is instead to ensure that, should I disappear or be deposed because
+I'm a jerk, users aren't left exposed. I don't want this to be Void. I don't aim
+to hold anyone's hand, but at the same time there is no good reason users of a
+distribution should not be allowed to opt into having their updates funneled
+through a singular channel.  That is, after all, the point - if users don't want
+that, they can choose otherwise.
+
+I have no announcements of who these people will be, but the changes won't
+effect much of how you would expect things to function if Dylan were still here.
+
+I am of course willing to hear feedback on this stark shift from Dylan's
+previous policy, and suggestions on any of this are welcome. You can always find
+me in IRC #kisslinux (I always read the logs), you can talk to me at
+$/dilyn-corner or on Reddit (u/dilyn), and email is always an option:
+dilyn.corner@tutanota.com. If you find my address, you can even mail me a
+letter if you want.
+
+
+In conclusion, thanks for your faith.
+
+___

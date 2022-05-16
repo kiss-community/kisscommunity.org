@@ -1,0 +1,53 @@
+Subject Update on Dylan, IRC
+From    Dilyn Corner <dilyn.corner@k1sslinux.org>
+Date    Wed, 19 May 2021 17:27:00 -0500
+
+Two small updates to share with you all here!
+
+Bottom line up front:
+    1) Dylan is okay!
+    2) We have moved from Freenode to Libera.Chat
+
+
+Details:
+Previous attempts at divining Dylan's location or ways of contacting him were,
+as previously discussed, discarded. We wished him the best, and left it at that.
+
+However! Someone (not Dylan) recently reached out to me with some news. They
+contacted who we assume to be Dylan's mum and kindly inquired as to how he was
+doing. She appreciated the concern for his wellbeing, and was able to confirm
+one of our suspicions: the mad lad was simply experiencing burn out. It's to be
+expected, given how hard he had been working for the last 18+ months! He was,
+after all, the sixth most active person on Github for a time - and is still in
+the top thirty [1].
+
+We don't know if or when he'll return to this little project, but I think I
+speak for everyone when I say that we're glad to hear he's doing good and taking
+care of himself :)
+
+
+For those of you not in-the-know, there has been a fair bit of drama in the land
+of IRC! Freenode is basically synonymous with IRC for many of us, but there has
+been a massive shakeup for the last long-while, ultimately culminating in the
+upheaval which occurred today! You can read a lot more details here [2] and I do
+not plan on rehashing a lot of it.  Many projects have moved to alternatives
+already, from the tiniest communities to the far larger organizations. KISS is
+following suit. We are migrating to where many other people are going:
+#kisslinux @ libera.chat. The #kisslinux channel on Freenode will be around for
+who knows how long, though it is now set to invite-only. Make your way over to
+libera.chat at your leisure. For those who can't access Libera for whatever
+reason (a Matrix bridge is in the works apparently, and they are still
+experiencing expected stability issues), the mailing lists are still available
+for people who prefer not to deal with IRC at any level :) We don't currently
+have a logbot in the channel, though one will probably makes it appearance soon
+(tomorrow, mayhaps).
+
+
+That's all I had for you fine folx. Until next time!
+
+---
+    Dilyn
+
+
+[1] https://commits.top/worldwide.html
+[2] http://kline.sh/

@@ -1,0 +1,105 @@
+Subject Mailing list announcement
+From    Dilyn Corner <dilyn.corner@k1sslinux.org>
+Date    Wed, 14 Apr 2021 12:37:10 -0500
+
+Good news everyone!
+We have a mailing list!
+
+---
+
+One of the most frequent requests, probably since time immemorial, is to stop
+using GitHub so damn much. "It's not very KISS", they say.
+
+So armed only with ignorance and a fervent desire to sate the appetites of our
+ravenous users, I set to work.
+
+I'm happy to say that the same server which hosts our git and fossil mirrors is
+now hosting our mailing list! Indeed, it's hosting my own email right now.
+
+This post is about our lists specifically and not the server - if you want to
+learn more about what I've done with our little Linode, check out my own blog.
+It will be linked to at $/dilyn-corner/KISS-serv (and posted soon(tm)).
+
+We have two lists! dev and community. They serve two purposes, and are meant to
+be alternatives to some GitHub analogues. Specifically,
+
+dev@k1sslinux.org is similar to...
+$/kiss-community/repo
+$/kiss-community/kiss
+$/kiss-community/init
+
+community@k1sslinux.org is similar to...
+$/kiss-community/community
+$/kiss-community/website
+$/kiss-community/wiki
+
+These lists are here as an option for users who want to participate, but don't
+wnat to use GitHub for $GoodReason. Releases will still be posted to GitHub,
+repositories will still be updated, etc. etc. The list does not supercede IRC,
+which is more aimed at assisting with particular problems and questions (kernel
+options, Xorg issues, etc.), but in conjunction with - if you want to send a
+patch, it would be better to send it to the list instead of posting in IRC. But
+again, you can always just use GitHub :)
+
+The lists have some special features!
+Email...                      for...
+dev+faq@k1sslinux.org         -> an FAQ about the list
+dev+list@k1sslinux.org        -> a list of subscribers
+dev+digest@k1sslinux.org      -> a daily digest of what happened
+dev+listowner@k1sslinux.org   -> to email me!
+dev+subscribe@k1sslinux.org   -> to subscribe
+dev+unsubscribe@k1sslinux.org -> to unsubscribe
+dev+help@k1sslinux.org        -> A list of these features!
+
+
+If you have never used a mailing list before, congratulations. It's pretty neat,
+you'll probably love it. Mailing lists usually have rules for participating,
+ours is no exception!
+
+1) To send an email to the list, just email the list.
+Do not alter the subject on replies.
+When REPLYING to an email you got from the list, ensure that the only recipient
+of the email is the list itself, not the original sender. (This may be a bug, I
+am working on it). The only exception is if the sender says that they are not
+subscribed to the list, and would like to be CC'd on replies. Please respect
+their request :)
+
+
+2) Plain text please. HTML is gross. Pretty much every mail client allows you to
+configure this. Please do so.
+
+
+3) No top-posting. When replying to an email, reply to the relevant part
+in-line, or reply at the bottom of the email.
+
+A: Because it reverses the logical flow of conversation.
+Q: Why is top posting frowned upon?
+
+
+4) Line wrap your emails to a reasonable number of characters. 80 is sane, 70 is
+pretty much golden.
+
+
+5) Be courteous. Don't spam. Be good.
+
+
+The dev mailing list is currently being archived at archive.k1sslinux.org! The
+community mailing list will be archived soon(tm).
+
+
+For more information on mailing list etiquette, you can refer to [1].
+For more information on sending patches through email, please see [2].
+
+
+If you experience any bugs or issues with these lists, please let me know
+(preferably in IRC, or dilyn.corner@tutanota.com - I'll be keeping this account
+active for a while yet so it's safe). This mailing list is in BETA - there are
+kinks to be worked out almost definitely, but so far it has worked quite well!
+
+---
+    Dilyn
+
+
+
+[1] https://man.sr.ht/lists.sr.ht/etiquette.md
+[2] https://git-send-email.io/#step-1
