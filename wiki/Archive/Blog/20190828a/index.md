@@ -24,7 +24,7 @@ supported!
 
 I have written a patch to remove the `dbus` requirement in versions
 **69.0** to **71.0** beta. Firefox in KISS works 100% fine
-*without*`dbus`!
+*without* `dbus`!
 
 -   Firefox 71.0 beta:
     [patch](https://github.com/kiss-community/repo/blob/ded0a8fc3e2800a579a2ed7df850e619a113c8eb/testing/firefox/patches/firefox-71-no-dbus.patch)
@@ -37,7 +37,7 @@ I have written a patch to remove the `dbus` requirement in versions
 
 ### Why did --disable-dbus break?
 
-Firefox 69.0 added a new audio feature called "audio_thread_priority"
+Firefox 69.0 added a new audio feature called "audio\_thread\_priority"
 to prioritize audio threads. On Linux, this uses `dbus` to function.
 
 Firefox has historically always provided the `--disable-dbus` option to
