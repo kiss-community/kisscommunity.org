@@ -20,6 +20,13 @@ a {
 	background-color: #ddd;
 }
 
+blockquote::before {
+    float: left;
+    width: 1ch;
+    margin-right: 1ch;
+    content: ">";
+}
+
 #menu {
 	clear: both;
 	color: #069;
@@ -148,10 +155,10 @@ h4 {
 	}
 	blockquote, pre, code {
 		background-color: #111;
-		border-color: #222;
+		border-color: #aaa;
 	}
 	a {
-		color: #56c8ff;
+		color: #6cf;
 	}
 	#main img[src$=svg] {
 		filter: invert(1);
