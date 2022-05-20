@@ -12,7 +12,7 @@ a {
 	color: #005386;
 }
 
-#header a, #nav a, #menu a {
+#nav a, #menu a {
 	text-decoration: none;
 }
 
@@ -46,19 +46,6 @@ blockquote::before {
 	background-color: #069;
 }
 
-#header {
-	background-color: #eee;
-	clear: both;
-	color: #555;
-	font-size: 1.78em;
-	padding: 0.7ex 0.7ex 0.7ex 0.7em;
-}
-
-#headerLink {
-	color: #17a;
-	margin-left: 5px;
-}
-
 h1 {
 	margin: 1em 1ex 0.5ex 0;
 	font-size: 1.4em;
@@ -77,12 +64,6 @@ h3 {
 h4 {
 	margin: 1em 1ex 0.5ex 0;
 	font-size: 0.9em;
-}
-
-#headerSubtitle {
-	font-size: 0.75em;
-	font-style: italic;
-	margin-left: 1em;
 }
 
 #content {
@@ -146,9 +127,6 @@ h4 {
 	}
 	#menu {
 		border-top: 1px solid #222;
-	}
-	#header {
-		background-color: #111;
 	}
 	#nav a:hover {
 		background-color: #222;
