@@ -3,30 +3,24 @@ body {
 	padding: 0;
 	margin: 0;
 }
-
 pre, code {
 	margin: 0;
 }
-
 a {
-	color: #005386;
+	color: #069;
 }
-
 #nav a, #menu a {
 	text-decoration: none;
 }
-
 #nav a:hover {
 	background-color: #ddd;
 }
-
 blockquote::before {
-    float: left;
-    width: 1ch;
-    margin-right: 1ch;
-    content: ">";
+	float: left;
+	width: 1ch;
+	margin-right: 1ch;
+	content: ">";
 }
-
 #menu {
 	clear: both;
 	color: #069;
@@ -36,42 +30,33 @@ blockquote::before {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #069;
 }
-
 #menu a {
 	padding: 0.5ex 1ex;
 	color: #fff;
 }
-
 #menu a:hover {
 	background-color: #069;
 }
-
-h1 {
+h1, h2, h3, h4 {
 	margin: 1em 1ex 0.5ex 0;
+}
+h1 {
 	font-size: 1.4em;
 }
-
 h2 {
-	margin: 1em 1ex 0.5ex 0;
 	font-size: 1.3em;
 }
-
 h3 {
-	margin: 1em 1ex 0.5ex 0;
 	font-size: 1.0em;
 }
-
 h4 {
-	margin: 1em 1ex 0.5ex 0;
 	font-size: 0.9em;
 }
-
 #content {
 	clear: both;
 	margin: 0;
 	padding: 0;
 }
-
 #nav {
 	float: left;
 	margin: 0 1px 0 0;
@@ -79,47 +64,38 @@ h4 {
 	border-right: 1px dotted #ccc;
 	width: 200px;
 }
-
 #nav ul {
 	margin: 0;
 	padding: 0;
 }
-
 #nav li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-
 #nav li ul {
 	padding-left: 0.6em !important;
 }
-
 #nav li a {
 	display: block;
 	margin: 0;
 	padding: 0.8ex 2em 0.8ex 1em;
 }
-
 #main {
 	margin: 0 0 0 200px;
 	max-width: 50em;
 	padding: 1.5em;
 }
-
 .left {
 	float: left;
 	margin: 0;
 	padding: 0;
 }
-
 .right {
 	float: right;
 	margin: 0;
 	padding: 0;
 }
-
-
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #000;
