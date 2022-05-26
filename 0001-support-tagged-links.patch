@@ -1,0 +1,103 @@
+From 4af3828bdaed433eb56d5d80b2efc1b6721fa5e8 Mon Sep 17 00:00:00 2001
+From: aabacchus <ben@bvnf.space>
+Date: Thu, 26 May 2022 13:10:01 +0100
+Subject: [PATCH] support tagged links
+
+---
+ documentation |  8 ++++++++
+ smu.c         | 28 ++++++++++++++++++++++++----
+ 2 files changed, 32 insertions(+), 4 deletions(-)
+
+diff --git a/documentation b/documentation
+index 8ce605a..064e516 100644
+--- a/documentation
++++ b/documentation
+@@ -95,6 +95,14 @@ The resulting HTML-Code
+ 
+ 	<a href="http://s01.de/~gottox/index.cgi/proj_smu">smu - simple mark up</a></p>
+ 
++To make a link to the location in the page, use
++
++	%[myheader]
++
++which results in
++
++	<a href="#myheader" id="myheader">myheader</a>
++
+ Lists
+ -----
+ 
+diff --git a/smu.c b/smu.c
+index 28d413c..74917b9 100644
+--- a/smu.c
++++ b/smu.c
+@@ -250,7 +250,7 @@ dolineprefix(const char *begin, const char *end, int newblock) {
+ 
+ int
+ dolink(const char *begin, const char *end, int newblock) {
+-	int img, len, sep, parens_depth = 1;
++	int img = 0, tagged = 0, len, sep, parens_depth = 1;
+ 	const char *desc, *link, *p, *q, *descend, *linkend;
+ 	const char *title = NULL, *titleend = NULL;
+ 
+@@ -258,20 +258,26 @@ dolink(const char *begin, const char *end, int newblock) {
+ 		img = 0;
+ 	else if(strncmp(begin, "![", 2) == 0)
+ 		img = 1;
++	else if(strncmp(begin, "%[", 2) == 0)
++		tagged = 1;
+ 	else
+ 		return 0;
+-	p = desc = begin + 1 + img;
+-	if(!(p = strstr(desc, "](")) || p > end)
++	p = desc = begin + 1 + (img || tagged);
++	if(tagged && (!(p = strstr(desc, "]")) || p > end))
++		return 0;
++	if(!tagged && (!(p = strstr(desc, "](")) || p > end))
+ 		return 0;
+ 	for(q = strstr(desc, "!["); q && q < end && q < p; q = strstr(q + 1, "!["))
+ 		if(!(p = strstr(p + 1, "](")) || p > end)
+ 			return 0;
+ 	descend = p;
+ 	link = p + 2;
++	if(tagged)
++		link = desc;
+ 
+ 	/* find end of link while handling nested parens */
+ 	q = link;
+-	while(parens_depth) {
++	while(!tagged && parens_depth) {
+ 		if(!(q = strpbrk(q, "()")) || q > end)
+ 			return 0;
+ 		if(*q == '(')
+@@ -281,6 +287,11 @@ dolink(const char *begin, const char *end, int newblock) {
+ 		if(parens_depth && q < end)
+ 			q++;
+ 	}
++	if(tagged) {
++		if(!(q = strchr(q, ']')) || q > end)
++			return 0;
++	}
++
+ 
+ 	if((p = strpbrk(link, "\"'")) && p < end && q - 1 > p + 1) {
+ 		sep = p[0]; /* separator: can be " or ' */
+@@ -316,6 +327,15 @@ dolink(const char *begin, const char *end, int newblock) {
+ 		}
+ 		fputs("/>", stdout);
+ 	}
++	else if(tagged) {
++		fputs("<a href=\"#", stdout);
++		hprint(link, linkend);
++		fputs("\" id=\"", stdout);
++		hprint(link, linkend);
++		fputs("\">", stdout);
++		hprint(desc, descend);
++		fputs("</a>",stdout);
++	}
+ 	else {
+ 		fputs("<a href=\"", stdout);
+ 		hprint(link, linkend);
+-- 
+2.36.1
+

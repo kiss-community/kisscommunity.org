@@ -15,6 +15,7 @@ build-page: build-page.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ build-page.c
 
 smu/smu:
+	cd smu; patch -p1 < ../0001-support-tagged-links.patch
 	cd smu; $(MAKE)
 
 clean:
