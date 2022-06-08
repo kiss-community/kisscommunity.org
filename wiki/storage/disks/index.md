@@ -541,8 +541,7 @@ Here is an example fstab, which will mount ROOTFS to `/`, BOOT to `/boot`, HOME 
 
 tmpfs, proc, sysfs, and devpts should be mounted during the init process.
 Therefore, proc, sysfs, and devpts can be left out of the fstab. A reason to
-keep tmpfs in the fstab is to use it for building packages in RAM. To only do
-this for certain packages, see <https://k1sslinux.org/package-manager#6.3>.
+keep tmpfs in the fstab is to use it for building packages in RAM.
 
 Devices can be referred to either by their `/dev` pathname, by a label, by UUID,
 or by Part-UUID. For systems with multiple drives, it is recommended to use
