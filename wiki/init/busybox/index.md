@@ -1,40 +1,40 @@
 MANAGING SERVICES WITH BUSYBOX
-________________________________________________________________________________
+==============================
 
 KISS uses busybox's init with busybox's runit utilities for services by default.
 
 
 Basic usage
-________________________________________________________________________________
+-----------
 
-+---------+--------------------------------------------------------------------+
-| Action  | Command                                                            |
-|---------+--------------------------------------------------------------------|
-| List    | $ ls /etc/sv/                                                      |
-|         |                                                                    |
-| Enable  | $ ln -s /etc/sv/SERVICE_NAME/ /var/service                         |
-| Disable | $ unlink /var/service/SERVICE_NAME                                 |
-|         |                                                                    |
-| Stop    | $ sv down SERVICE_NAME                                             |
-| Start   | $ sv up   SERVICE_NAME                                             |
-|         |                                                                    |
-+---------+--------------------------------------------------------------------+
+    +---------+--------------------------------------------------------------------+
+    | Action  | Command                                                            |
+    |---------+--------------------------------------------------------------------|
+    | List    | $ ls /etc/sv/                                                      |
+    |         |                                                                    |
+    | Enable  | $ ln -s /etc/sv/SERVICE_NAME/ /var/service                         |
+    | Disable | $ unlink /var/service/SERVICE_NAME                                 |
+    |         |                                                                    |
+    | Stop    | $ sv down   SERVICE_NAME                                           |
+    | Start   | $ sv up     SERVICE_NAME                                           |
+    | Status  | $ sv status SERVICE_NAME                                           |
+    |         |                                                                    |
+    +---------+--------------------------------------------------------------------+
 
-See https://git.busybox.net/busybox/tree/runit/sv.c for full usage.
+See <https://git.busybox.net/busybox/tree/runit/sv.c> for full usage.
 
 
 Running commands during boot/shutdown
-________________________________________________________________________________
+-------------------------------------
 
 This can be accomplished in a generic way (using /etc/rc.d) or by modifying the
 busybox-init only /etc/inittab file.
 
 
-    Using /etc/rc.d
-    ____________________________________________________________________________
+### Using /etc/rc.d
 
-    This method of configuration works with every init system which uses the
-    KISS init framework. See $/kiss-community/init
+This method of configuration works with every init system which uses the
+KISS init framework. See <https://github.com/kisslinux/init>
 
     +--------------------------------------------------------------------------+
     | Run command during boot.                                                 |
@@ -57,8 +57,7 @@ busybox-init only /etc/inittab file.
     +--------------------------------------------------------------------------+
 
 
-    Using /etc/inittab
-    ____________________________________________________________________________
+### Using /etc/inittab
 
     +--------------------------------------------------------------------------+
     | Run command during boot.                                                 |
