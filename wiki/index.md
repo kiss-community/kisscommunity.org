@@ -4,7 +4,7 @@
 
 > [KISS Linux](https://kisslinux.org/) is an independent Linux(R) distribution with a focus on simplicity and the concept of less is more.
 
-We're on irc at #kisslinux on [libera.chat](irc://irc.libera.chat) [(logs are available here)](https://libera.irclog.whitequark.org/kisslinux).
+We're on IRC at #kisslinux on [libera.chat](irc://irc.libera.chat) ([logs are available here](https://libera.irclog.whitequark.org/kisslinux)).
 
 ## Important links
 - [$/kiss-community](https://github.com/kiss-community)
