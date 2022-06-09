@@ -95,6 +95,14 @@ The resulting HTML-Code
 
 	<a href="http://s01.de/~gottox/index.cgi/proj_smu">smu - simple mark up</a></p>
 
+To make a link to the location in the page, use
+
+	%[myheader]
+
+which results in
+
+	<a href="#myheader" id="myheader">myheader</a>
+
 Lists
 -----
 
