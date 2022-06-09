@@ -1,5 +1,5 @@
 FIRMWARE
-________________________________________________________________________________
+========
 
 Linux firmware is a package distributed alongside the Linux kernel that contains
 firmware binary blobs necessary for partial or full functionality of certain
@@ -12,41 +12,37 @@ peripherals, their requirement level (conditional, recommended or mandatory), a
 brief description and a rationale if necessary.
 
 
-[0.0] Index
-________________________________________________________________________________
+## [%[0.0]] Index
 
-- Overview                                                                 [1.0]
-    - Incorporating Firmware                                               [1.1]
-    - Rebuilding the Kernel                                                [1.2]
-- Processor                                                                [2.0]
-    - AMD Microcode                                                        [2.1]
-    - Intel Microcode                                                      [2.2]
-- Graphics                                                                 [3.0]
-    - NVIDIA                                                               [3.1]
-    - AMDGPU                                                               [3.2]
-- Wireless                                                                 [4.0]
-    - Intel (iwlwifi)                                                      [4.1]
-- Bluetooth                                                                [5.0]
-- Sound                                                                    [6.0]
-- References                                                               [7.0]
+* [1.0](#1.0) Overview
+  * [1.1](#1.1) Incorporating Firmware
+  * [1.2](#1.2) Rebuilding the Kernel
+* [2.0](#2.0) Processor
+  * [2.1](#2.1) AMD Microcode
+  * [2.2](#2.2) Intel Microcode
+* [3.0](#3.0) Graphics
+  * [3.1](#3.1) NVIDIA
+  * [3.2](#3.2) AMDGPU
+* [4.0](#4.0) Wireless
+  * [4.1](#4.1) Intel (iwlwifi)
+* [5.0](#5.0) Bluetooth
+* [6.0](#6.0) Sound
 
 
-[1.0] Overview
-________________________________________________________________________________
+## [%[1.0]] Overview
 
 The following are considered some best practices when configuring firmware for
 peripherals.
 
 
-    [1.1] Incorporating Firmware
-    ____________________________________________________________________________
+## [%[1.1]] Incorporating Firmware
 
-    When building drivers into the kernel, ensure that the firmware blobs
-    (*.ucode files) are referenced and the firmware root directory is set.
+When building drivers into the kernel, ensure that the firmware blobs
+(\*.ucode files) are referenced and the firmware root directory is set.
 
-    Replace '****.ucode' with the firmware you would like to bake into the
-    kernel. Values are paths to files, separated by spaces with locations
-    relative to the value of CONFIG_EXTRA_FIRMWARE_DIR.
+Replace '\*\*\*\*.ucode' with the firmware you would like to bake into the
+kernel. Values are paths to files, separated by spaces with locations
+relative to the value of `CONFIG_EXTRA_FIRMWARE_DIR`.
 
     +--------------------------------------------------------------------------+
     |   ".config" Example                                                      |
@@ -57,8 +53,8 @@ peripherals.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    If you are using the menuconfig tool, it should look something like the
-    following:
+If you are using the menuconfig tool, it should look something like the
+following:
 
     +--------------------------------------------------------------------------+
     |   "menuconfig" Example                                                   |
@@ -73,19 +69,18 @@ peripherals.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    Note: The CONFIG_EXTRA_FIRMWARE should be a list of all of the required
-    firmware blobs, delimited by a single space character.
+Note: The `CONFIG_EXTRA_FIRMWARE` should be a list of all of the required
+firmware blobs, delimited by a single space character.
 
 
-    [1.2] Rebuilding the Kernel
-    ____________________________________________________________________________
+## [%[1.2]] Rebuilding the Kernel
 
-    Configuring a kernel is difficult and everyone is bound to make a few
-    mistakes or forget a step in the process.. fear not!  The road to "recovery"
-    is quick and painless.
+Configuring a kernel is difficult and everyone is bound to make a few
+mistakes or forget a step in the process.. fear not!  The road to "recovery"
+is quick and painless.
 
-    The process after updating the .config file with the required changes would
-    be as follows:
+The process after updating the .config file with the required changes would
+be as follows:
 
     +--------------------------------------------------------------------------+
     | Rebuild the Kernel                                                       |
@@ -127,22 +122,20 @@ peripherals.
     +--------------------------------------------------------------------------+
 
 
-[2.0] Processor
-________________________________________________________________________________
+## [%[2.0]] Processor
 
 The following sections describe the kernel requirements for microcode loading
 for various manufacturers.
 
 
-    [2.1] AMD Microcode
-    ____________________________________________________________________________
+## [%[2.1]] AMD Microcode
 
-    Microcode updates for AMD processors are provided by linux-firmware
-    package.  AMD specific microcode is located in the amd-ucode/ and amd/
-    folders. [1]
+Microcode updates for AMD processors are provided by linux-firmware
+package.  [AMD specific microcode](https://wiki.gentoo.org/wiki/AMD_microcode) is located in the amd-ucode/ and amd/
+folders.
 
-    In order determine which microcode firmware blob is required, you can use
-    grep to search for the "cpu family" value in /proc/cpuinfo:
+In order determine which microcode firmware blob is required, you can use
+grep to search for the "cpu family" value in /proc/cpuinfo:
 
     +--------------------------------------------------------------------------+
     |                                                                          |
@@ -150,8 +143,8 @@ for various manufacturers.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    Use the output from the command above to determine which firmware blob file
-    is required below:
+Use the output from the command above to determine which firmware blob file
+is required below:
 
     +---------------------------------+---------+------------------------------+
     |  File(s)                        |   Dec.  |   CPU Family Name            |
@@ -172,19 +165,18 @@ for various manufacturers.
     |                                 |         |                              |
     +---------------------------------+---------+------------------------------+
 
-    Remember to reference the firmware blobs in CONFIG_EXTRA_FIRMWARE. [1.1]
+Remember to reference the firmware blobs in `CONFIG_EXTRA_FIRMWARE`. \[[1.1](#1.1)\]
 
 
-    [2.2] Intel Microcode
-    ____________________________________________________________________________
+## [%[2.2]] Intel Microcode
 
-    Microcode updates for Intel processors are provided by the
-    "Intel-Linux-Processor-Microcode-Data-Files" package [2] and located in the
-    intel-ucode/ folder.
+Microcode updates for Intel processors are provided by the
+"[Intel-Linux-Processor-Microcode-Data-Files](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files)" package and located in the
+intel-ucode/ folder.
 
-    In order determine which microcode firmware blob is required, you can use
-    grep to search for "cpu family", "model" and "stepping" values in
-    /proc/cpuinfo [3]:
+In order [determine which microcode firmware blob is required](https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/issues/16), you can use
+grep to search for "cpu family", "model" and "stepping" values in
+/proc/cpuinfo:
 
     +--------------------------------------------------------------------------+
     |                                                                          |
@@ -194,9 +186,9 @@ for various manufacturers.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    Use the outputed values (converted to Hex) from the commands above to
-    determine which firmware blob file is required by using the following naming
-    convention:
+Use the outputed values (converted to Hex) from the commands above to
+determine which firmware blob file is required by using the following naming
+convention:
 
     +--------------------------------------------------------------------------+
     |                                                                          |
@@ -204,48 +196,45 @@ for various manufacturers.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    Note: If converting to Hex isn't your think, user $/illiliti has provided an
-          example POSIX compliant shell script that can do this for you
-	  "automagically":
+Note: If converting to Hex isn't your think, user $/[illiliti](https://github.com/illiliti) has provided an
+example POSIX compliant shell script that can do this for you
+"automagically":
 
-          +--------------------------------------------------------------------+
-          |                                                                    |
-          |   #!/bin/sh -f                                                     |
-          |   while IFS=: read -r key val; do                                  |
-          |       case $key in                                                 |
-          |           stepping*)   : ${stepping:=$val} ;;                      |
-          |           cpu*family*) : ${family:=$val}   ;;                      |
-          |           model*)      : ${model:=$val}    ;;                      |
-          |       esac                                                         |
-     	  |   done < /proc/cpuinfo                                             |
-	  |   printf "%02x-%02x-%02x\n" "$family" "$model" "$stepping"	       |
-          |                                                                    |
-          +--------------------------------------------------------------------+
+    +--------------------------------------------------------------------+
+    |                                                                    |
+    |   #!/bin/sh -f                                                     |
+    |   while IFS=: read -r key val; do                                  |
+    |       case $key in                                                 |
+    |           stepping*)   : ${stepping:=$val} ;;                      |
+    |           cpu*family*) : ${family:=$val}   ;;                      |
+    |           model*)      : ${model:=$val}    ;;                      |
+    |       esac                                                         |
+    |   done < /proc/cpuinfo                                             |
+    |   printf "%02x-%02x-%02x\n" "$family" "$model" "$stepping"         |
+    |                                                                    |
+    +--------------------------------------------------------------------+
 
-    Remember to reference the firmware blobs in CONFIG_EXTRA_FIRMWARE. [1.1]
+Remember to reference the firmware blobs in `CONFIG_EXTRA_FIRMWARE`. \[[1.1](#1.1)\]
 
 
-[3.0] Graphics
-________________________________________________________________________________
+## [%[3.0]] Graphics
 
 The following sections describe the kernel requirements for graphics cards from
 various manufacturers.
 
 
-    [3.1] NVIDIA
-    ____________________________________________________________________________
+## [%[3.1]] NVIDIA
 
-    (this is a placeholder)
+(this is a placeholder)
 
 
-    [3.2] AMDGPU
-    ____________________________________________________________________________
+## [%[3.2]] AMDGPU
 
-    Setting up a system to use AMDGPU requires identifying the proper card,
-    installing the corresponding firmware, configuring the kernel, and
-    installing the X11 driver.
+Setting up a system to use AMDGPU requires identifying the proper card,
+installing the corresponding firmware, configuring the kernel, and
+installing the X11 driver.
 
-    Begin by identifying the family and chipset of your AMDGPU:
+Begin by identifying the family and chipset of your AMDGPU:
 
     +--------------+-------------------------+---------------------------------+
     |   Family     |   Chipset               |   Product Name                  |
@@ -277,9 +266,9 @@ various manufacturers.
     |              |                         |                                 |
     +--------------+-------------------------+---------------------------------+
 
-    For more information on each chipset, refer to the Gentoo AMDGPU Wiki [0].
+For more information on each chipset, refer to the [Gentoo AMDGPU Wiki](https://wiki.gentoo.org/wiki/AMDGPU).
 
-    The kernel can now be configured based on the information obtained above:
+The kernel can now be configured based on the information obtained above:
 
     +--------------------------------------------------------------------------+
     |                                                                          |
@@ -302,31 +291,29 @@ various manufacturers.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    Note: When using AMDGPU, it is recommended to unset the ATI Radeon option so
-          that the radeon module is not built. [0]
+Note: When using AMDGPU, it is [recommended](https://wiki.gentoo.org/wiki/AMDGPU) to unset the ATI Radeon option so
+that the radeon module is not built.
 
-    Remember to reference the firmware blobs, per Section [1.1]. The correct
-    AMDGPU firmware blobs can be found in the amdgpu/ folder of the
-    linux-firmware package. For example, if I was using a GPU with the TONGA
-    chipset, I would want to reference all amdgpu/tonga_* files.
+Remember to reference the firmware blobs, per Section \[[1.1](#1.1)\]. The correct
+AMDGPU firmware blobs can be found in the amdgpu/ folder of the
+linux-firmware package. For example, if I was using a GPU with the TONGA
+chipset, I would want to reference all amdgpu/tonga_\* files.
 
 
-[4.0] Wireless Devices
-________________________________________________________________________________
+## [%[4.0]] Wireless Devices
 
 The following sections describe the kernel requirements for wireless devices
 from various manufacturers.
 
 
-    [4.1] Intel (iwlwifi)
-    ____________________________________________________________________________
+## [%[4.1]] Intel (iwlwifi)
 
-    Determine which module your wireless device uses (iwldvm or iwlmvm), along
-    with which firmware (iwlwifi-****.ucode) your device requires.
+Determine which module your wireless device uses (iwldvm or iwlmvm), along
+with which firmware (iwlwifi-\*\*\*\*.ucode) your device requires.
 
-    * https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi
+* <https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi>
 
-    Once determined, ensure that the following kernel requirements are met:
+Once determined, ensure that the following kernel requirements are met:
 
     +--------------------------------------------------------------------------+
     |                                                                          |
@@ -344,40 +331,29 @@ from various manufacturers.
     |                                                                          |
     +--------------------------------------------------------------------------+
 
-    Remember to reference the firmware blobs in CONFIG_EXTRA_FIRMWARE. [1.1]
+Remember to reference the firmware blobs in `CONFIG_EXTRA_FIRMWARE`. \[[1.1](#1.1)\]
 
 
-[5.0] Bluetooth
-________________________________________________________________________________
+## [%[5.0]] Bluetooth
 
 (this is a placeholder)
 
 
-[6.0] Sound
-________________________________________________________________________________
+## [%[6.0]] Sound
 
 The options from the Sound card support menu need only to be set if the card
 supports HDMI or DisplayPort audio and you want to use it. On newer kernels
 where Enable AMD Audio CoProcessor IP support appears, that should also be set.
 
-+-----------------------------------------------------------------------------+
-|                                                                             |
-|   The following options are required for soundcard support (=y).            |
-|                                                                             |
-|   CONFIG_SND_PCI              CI sound devices                              |
-|   CONFIG_SND_HDA_INTEL        HD Audio PCI                                  |
-|   CONFIG_SND_HDA_PATCH_LOADER Patch loading for HD-audio                    |
-|   CONFIG_SND_HDA_CODEC_HDMI   HDMI/DisplayPort HD-audio codec support       |
-|                                                                             |
-|   (Remember to also specify whatever codec your soundcard needs.)           |
-|                                                                             |
-+-----------------------------------------------------------------------------+
-
-
-[7.0] References
-________________________________________________________________________________
-
-[0] https://wiki.gentoo.org/wiki/AMDGPU
-[1] https://wiki.gentoo.org/wiki/AMD_microcode
-[2] https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
-[3] https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/issues/16
+    +-----------------------------------------------------------------------------+
+    |                                                                             |
+    |   The following options are required for soundcard support (=y).            |
+    |                                                                             |
+    |   CONFIG_SND_PCI              CI sound devices                              |
+    |   CONFIG_SND_HDA_INTEL        HD Audio PCI                                  |
+    |   CONFIG_SND_HDA_PATCH_LOADER Patch loading for HD-audio                    |
+    |   CONFIG_SND_HDA_CODEC_HDMI   HDMI/DisplayPort HD-audio codec support       |
+    |                                                                             |
+    |   (Remember to also specify whatever codec your soundcard needs.)           |
+    |                                                                             |
+    +-----------------------------------------------------------------------------+
