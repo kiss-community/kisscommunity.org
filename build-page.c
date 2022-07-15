@@ -20,6 +20,7 @@ char *html_header =
     "<html>\n"
     "<head>\n"
     "\t<meta charset=\"utf-8\"/>\n"
+    "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n"
     "\t<title>KISS Community Wiki</title>\n"
     "\t<link rel=\"icon\" href=\"data:image/gif;base64,R0lGODlhEAAQAPEDAAAAAP8AAP///wAAACH5BAX//wMALAAAAAAQABAAAAImnB+ni8kf4mNRzmbvqE5zPQDiqI3kBQhmqZ5TuqKtyMavCZT4UgAAOw==\"/>\n"
     "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>\n"

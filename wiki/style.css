@@ -96,6 +96,17 @@ h4 {
 	margin: 0;
 	padding: 0;
 }
+@media (max-width: 999px) {
+	#nav {
+		float: none;
+		margin: 0;
+		width: 100%;
+		border: none;
+	}
+	#main {
+		margin: 0;
+	}
+}
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #000;
