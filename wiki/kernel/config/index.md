@@ -94,15 +94,13 @@ The following options are mandatory (when using busybox) (=n).
   are generated during the build process. These can be used to build eBPF
   tracing, or similar programs.
 
+* `CONFIG_HAVE_GCC_PLUGINS`:  This option enables loadable modules that provide
+  plugins for GCC which are useful for runtime instrumentation and static analysis.
+
 Because gmp, mpc, and mpfr are bundled with our gcc instead of being built as
 standalone packages, the headers are missing. This results in build failures
 when building GCC Plugins. Either install gmp & mpc separately from gcc, or
 disable `CONFIG_HAVE_GCC_PLUGINS` in the kernel config.
-
-The following options are mandatory (when using busybox) (=n).
-
-* `CONFIG_HAVE_GCC_PLUGINS`:  This option enables loadable modules that provide
-  plugins for GCC which are useful for runtime instrumentation and static analysis.
 
 
 ## [%[4.0]] Never lose your .config ever again
