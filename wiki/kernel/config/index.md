@@ -44,11 +44,7 @@ A fairly generic and compatible base configuration for your architecture can be
 created by running the following command. This handles a large portion of the
 work required during the configuration stage.
 
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    |   $ make defconfig                                                           |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
+    $ make defconfig
 
 There are countless flows of configuring the Linux kernel, and there are fun
 things to try scattered all over the internet. Good luck!
@@ -62,30 +58,20 @@ documented. They arrange all of the config options in neat menus and submenus
 and provide descriptions for each of them, allowing the Linux kernel to be
 comprehended by mere mortals.
 
-    +------------------------------------------------------------------------------+
-    | Terminal based configuration tools (requires ncurses)                        |
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    |   $ make menuconfig                                                          |
-    |   $ make nconfig                                                             |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
-    | Graphical configuration tools (requires a working Xorg server and QT/GTK)    |
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    |   $ make xconfig  # Requires qt5.                                            |
-    |   $ make gconfig  # Requires gtk+3.                                          |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
+Terminal based configuration tools (requires ncurses)
+
+    $ make menuconfig
+    $ make nconfig
+
+Graphical configuration tools (requires a working Xorg server and QT/GTK)
+
+    $ make xconfig  # Requires qt5.
+    $ make gconfig  # Requires gtk+3.
 
 Another option you may find very useful to easily trim down general (default,
 distro, etc.) configuration files is:
 
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    |   $ make localyesconfig                                                      |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
+    $ make localyesconfig
 
 This modifies the current .config to only compile whatever drivers are loaded in
 the host kernel's current state. Running this after connecting all the hardware
@@ -102,31 +88,21 @@ standard usage depends on unimportant and rarely used kernel features.
 When these options are disabled (is the case by default unless 'allyesconfig' is
 used), the kernel builds just fine.
 
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    | The following options are mandatory (when using busybox) (=n).               |
-    |                                                                              |
-    |   CONFIG_IKHEADERS         This option enables access to the in-kernel       |
-    |                            headers that are generated during the build       |
-    |                            process. These can be used to build eBPF tracing, |
-    |                            or similar programs.                              |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
+The following options are mandatory (when using busybox) (=n).
+
+* `CONFIG_IKHEADERS`: This option enables access to the in-kernel headers that
+  are generated during the build process. These can be used to build eBPF
+  tracing, or similar programs.
 
 Because gmp, mpc, and mpfr are bundled with our gcc instead of being built as
 standalone packages, the headers are missing. This results in build failures
 when building GCC Plugins. Either install gmp & mpc separately from gcc, or
 disable `CONFIG_HAVE_GCC_PLUGINS` in the kernel config.
 
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    | The following options are mandatory (when using busybox) (=n).               |
-    |                                                                              |
-    |   CONFIG_HAVE_GCC_PLUGINS  This option enables loadable modules that provide |
-    |                            plugins for GCC which are useful for runtime      |
-    |                            instrumentation and static analysis.              |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
+The following options are mandatory (when using busybox) (=n).
+
+* `CONFIG_HAVE_GCC_PLUGINS`:  This option enables loadable modules that provide
+  plugins for GCC which are useful for runtime instrumentation and static analysis.
 
 
 ## [%[4.0]] Never lose your .config ever again
@@ -135,14 +111,10 @@ The kernel can be configured to store its configuration file to later make it
 accessible via /proc/config.gz. Storing the .config in the kernel ensures that
 you will never lose your config so long as you have its kernel.
 
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    | The following options are recommended (=y).                                  |
-    |                                                                              |
-    |   CONFIG_IKCONFIG          Store the .config in the kernel.                  |
-    |   CONFIG_IKCONFIG_PROC     Make the .config accessible as /proc/config.gz    |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
+The following options are recommended (=y).
+
+* `CONFIG_IKCONFIG`:          Store the .config in the kernel.
+* `CONFIG_IKCONFIG_PROC`:     Make the .config accessible as /proc/config.gz
 
 
 ## [%[5.0]] Removing the perl requirement
@@ -155,9 +127,3 @@ A patch can be applied which adds a POSIX shell implementation of the perl
 script. This fully removes the perl requirement.
 
 @/[patches/kernel-no-perl.patch](/kernel/patches/kernel-no-perl.patch)  (Written by $/[E5ten](https://github.com/E5ten))
-
-    +------------------------------------------------------------------------------+
-    |                                                                              |
-    |   TIP: All links like this one are also available via 'kiss help'!           |
-    |                                                                              |
-    +------------------------------------------------------------------------------+
