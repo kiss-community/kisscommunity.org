@@ -175,6 +175,9 @@ Good:
 
     install -Dm755 ls "$1/usr/bin/ls"
 
+NOTE: since Dylan wrote this style guide, he changed opinions on this point
+since install isn't POSIX. Both styles are accepted in the community repo.
+
 
 %[0212]
 
