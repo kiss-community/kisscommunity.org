@@ -2,7 +2,7 @@ PACKAGE STYLE GUIDE
 ===================
 
 This document is a style guide which will double as documentation for a possible
-package linter in the future. Every package in the Official Repositories and the
+package linter in the future. Every package in the Official repositories and the
 Community repository adheres to this style guide.
 
 NOTE: Exceptions are made where it makes sense.
@@ -33,25 +33,21 @@ GENERAL
 
 %[0000]
 
-Package is not suitable for inclusion in the Community repository. The same
-rules above may apply to other software at the discretion of the BDFL.
+Some packages are not suitable for inclusion in the Community repository.
 
 Examples: ConsoleKit, dbus, electron, gettext, gtk2, intltool, libsn,
-logind, pam, pipewire, polkit, pulseaudio, systemd, wayland and
+logind, pam, python2, polkit, pulseaudio, systemd, wayland and
 all Desktop Environments.
+
+The same rules above may apply to other software at the discretion of
+maintainers.
 
 
 %[0001]
 
-No new packages shall use Python 2 as it will be removed once Chromium drops
-it as a dependency.
-
-
-%[0002]
-
-Packages which are binaries should contain the suffix '-bin' to reflect
+Packages which are binaries must contain the suffix '-bin' to reflect
 this fact. Similarly, packages which pull from git should contain the
-suffix '-git'. The version of git packages should also be set to 'git'.
+suffix '-git'. The version of git packages must also be set to 'git'.
 
 
 
@@ -98,7 +94,7 @@ There must also be a blank line directly below the shebang.
 
 %[0205]
 
-All comments must start with a capital letter and use proper spelling,
+All comments should start with a capital letter and use proper spelling,
 grammar and punctuation.
 
     # This is a comment.
@@ -135,16 +131,16 @@ Avoid quotes when unneeded.
     Bad:  [ "$var" = "test" ]
     Good: [ "$var" = test ]
     
-    Bad:  install -Dm755 "file" "$1/usr/bin/file"
-    Good: install -Dm755 file "$1/usr/bin/file"
+    Bad:  cp "file" "$1/usr/bin/file"
+    Good: cp file "$1/usr/bin/file"
 
 
 %[0209]
 
 Quote entire strings instead of variables.
 
-    Bad:  install -Dm644 cat "$1"/usr/bin/cat
-    Good: install -Dm644 cat "$1/usr/bin/cat"
+    Bad:  cp -f cat "$1"/usr/bin/cat
+    Good: cp -f cat "$1/usr/bin/cat"
 
 
 %[0210]
@@ -153,27 +149,27 @@ Align arguments in blocks of command calls.
 
 Bad:
 
-    install -D file.h "$1/usr/include/file.h"
-    install -D libfile.so "$1/usr/lib/libfile.so"
+    cp file.h "$1/usr/include/file.h"
+    cp libfile.so "$1/usr/lib/libfile.so"
 
 Good:
 
-    install -D file.h     "$1/usr/include/file.h"
-    install -D libfile.so "$1/usr/lib/libfile.so"
+    cp file.h     "$1/usr/include/file.h"
+    cp libfile.so "$1/usr/lib/libfile.so"
 
 
 %[0211]
 
-Use `install` instead of ...
+Use `mkdir` and `cp` instead of `install`.
 
 Bad:
 
-    mkdir -p "$1/usr/bin"
-    cp ls "$1/usr/bin/"
+    install -Dm755 ls "$1/usr/bin/ls"
 
 Good:
 
-    install -Dm755 ls "$1/usr/bin/ls"
+    mkdir -p "$1/usr/bin"
+    cp ls "$1/usr/bin/"
 
 NOTE: since Dylan wrote this style guide, he changed opinions on this point
 since install isn't POSIX. Both styles are accepted in the community repo.
@@ -339,8 +335,8 @@ Use the following style:
     
     install -Dm755 lazygit "$1/usr/bin/lazygit"
 
-Note: If the directory 'vendor' is available in the root directory of the
-source, the preffered method is to omit GOPATH and GO111MODULE and use:
+NOTE: If the directory 'vendor' is available in the root directory of the
+source, the preferred method is to omit GOPATH and GO111MODULE and use:
     
     go build \
        -mod=vendor \
@@ -367,37 +363,37 @@ DEPENDS
 
 %[1201]
 
-This dependency is unneeded and can be removed.
+If dependency is unneeded, then it must be removed.
 
 
 %[1202]
 
-This dependency is implicit. Some packages are assumed to always be
-available. This dependency can be removed.
+Some packages are assumed to always be available. Such dependency must be
+removed.
 
 Examples: gcc, make, musl.
 
 
 %[1203]
 
-This dependency needs 'make' as it is only required during build time.
+Build-time dependencies must be marked as 'make' dependencies.
 
-Common Examples: autoconf, automake, cmake, meson.
+Examples: autoconf, automake, cmake, meson.
 
 
 %[1204]
 
-This dependency doesn't need 'make' as it is required during runtime.
+Runtime dependencies must not be marked as 'make' dependencies.
 
 
 %[1205]
 
-The depends list must be sorted.
+The depends file must be sorted.
 
 
 %[1206]
 
-The depends file is empty and should be removed.
+If depends file is empty, then it must be removed.
 
 
 
@@ -437,7 +433,7 @@ VERSION
 
 %[1601]
 
-Version doesn't match upstream.
+Package version must be latest upstream version.
 
 
 %[1602]
@@ -447,7 +443,7 @@ Use 'git' in place of '9999'.
 
 %[1603]
 
-Missing relative version number.
+The version file must contain relative version number.
 
     Bad:  1.0.0
     Good: 1.0.0 1
