@@ -188,6 +188,11 @@ Prefer `$CC` to ...
 Always use `-p` with `mkdir`.
 
 
+%[0214]
+
+Always use `printf`. Do not use `echo`.
+
+
 
 GNU AUTOTOOLS
 -------------
