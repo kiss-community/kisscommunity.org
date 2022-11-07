@@ -27,8 +27,8 @@ or "no such file or directory".
 Make sure your CFLAGS are like `-O2` not `-02` (letter O not number 0).
 
 Search online for the error message. Look through [issues in the community
-repo](https://github.com/kiss-community/community/issues?q=is%3Aissue),
-in case someone's encountered it before.
+repo](https://codeberg.org/kiss-community/community/issues), in case someone's
+encountered it before.
 
 If you need more help, the best place is IRC. Upload a *full* log to a pastebin.
 
@@ -45,9 +45,9 @@ Kernels with minor version 5.12-5.18 require the following patch to add an inclu
 	$ sed -i '/<stdlib.h>/a #include <linux/stddef.h>' tools/objtool/arch/x86/decode.c
 
 ### [%[013]] `env: can't execute 'bash': No such file or directory`, version 5.19
-Kernels with minor version 5.19 currently require bash to be built. There is a
-patch by [$/ioraff](https://github.com/ioraff) available
-[here](https://github.com/kiss-community/repo/issues/79) to remove this dependency.
+Kernels version 5.19 and 6.0 currently require bash to be built. There is a
+patch by [$/ioraff](https://codeberg.org/ioraff) available
+[here](https://codeberg.org/kiss-community/repo/issues/79) to remove this dependency.
 
 
 ## [%[020]] Kernel config/boot problems
