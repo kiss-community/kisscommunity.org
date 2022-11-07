@@ -187,6 +187,10 @@ Note: Do not squash commits that you’ve already shared with others. You are
 [4.0] Example 3: Writing a new KISS Wiki article.
 ________________________________________________________________________________
 
+Note: Specifics of this example are not relevant to this wiki; information about
+contributing to this wiki can be found at
+https://kisscommunity.bvnf.space/website/.
+
 Note: The method described below requires a GitHub user account. If you do not
       have a GitHub user account or do not wish to create one, you can still 
       submit your articles or ideas directly to dylan@k1ss.org.
