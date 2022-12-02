@@ -36,8 +36,7 @@ GENERAL
 Some packages are not suitable for inclusion in the Community repository.
 
 Examples: ConsoleKit, dbus, electron, gettext, gtk2, intltool, libsn,
-logind, pam, python2, polkit, pulseaudio, systemd, wayland and
-all Desktop Environments.
+logind, pam, python2, polkit, pulseaudio, systemd and all Desktop Environments.
 
 The same rules above may apply to other software at the discretion of
 maintainers.
