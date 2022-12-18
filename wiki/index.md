@@ -1,6 +1,6 @@
 # KISS Linux Community
 
-> when dylan says "no", we say "maybe"
+KISS Linux is a meta-distribution created by Dylan Araps, featuring the `kiss` package manager which makes it easy to maintain your own system.
 
 > [KISS Linux](https://kisslinux.org/) is an independent Linux(R) distribution with a focus on simplicity and the concept of less is more.
 
