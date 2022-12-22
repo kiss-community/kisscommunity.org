@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <unistd.h>
 
 #define CONVERTER "smu", "-n"
@@ -115,7 +116,7 @@ void print_nav_bar(void) {
 }
 
 int qsort_strcmp(const void *a, const void *b) {
-  return strcmp(*(const char **)a, *(const char **)b);
+  return strcasecmp(*(const char **)a, *(const char **)b);
 }
 
 int has_subdirs(char *this) {
