@@ -329,7 +329,7 @@ GO
 %[1100]
 
 Use the following style:
-    
+
     export GOPATH="$PWD/go"
     export GO111MODULE=on
     
@@ -341,7 +341,7 @@ Use the following style:
 
 NOTE: If the directory 'vendor' is available in the root directory of the
 source, the preferred method is to omit GOPATH and GO111MODULE and use:
-    
+
     go build \
        -mod=vendor \
        -further-options
