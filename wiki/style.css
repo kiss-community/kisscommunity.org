@@ -9,7 +9,8 @@ pre, code {
 	font-size: 100%;
 }
 pre {
-    padding: 1ch;
+	padding: 1ch;
+	overflow-x: auto;
 }
 a {
 	color: #069;
