@@ -1,3 +1,4 @@
 [submodule "smu"]
 	path = smu
 	url = https://github.com/Gottox/smu
+	ignore = all
