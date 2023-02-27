@@ -12,3 +12,5 @@ We're on IRC at #kisslinux on [libera.chat](irc://irc.libera.chat) ([logs are av
 - [Community package listing](https://jedahan.com/kiss-find) ([updated tool](https://github.com/aabacchus/kiss-find))
 - [Official website](https://kisslinux.org)
 - [$/kisslinux](https://github.com/kisslinux)
+
+You can contribute to this wiki! See [website/](website/) for details.
