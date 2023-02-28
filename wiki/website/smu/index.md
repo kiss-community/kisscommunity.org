@@ -15,7 +15,7 @@ Syntax
 smu was started as a rewrite of
 [markdown](http://daringfireball.net/projects/markdown/) but became something
 more lightweight and consistent. The biggest difference between markdown and smu
-is that smu doesn't support _reference style links_
+is that smu doesn't support _reference style links_.
 
 Inline pattern
 --------------
@@ -91,7 +91,7 @@ If you want to define a label for the url, you have to use a different syntax
 
 	[smu - simple mark up](http://s01.de/~gottox/index.cgi/proj_smu)
 
-The resulting HTML-Code
+The resulting HTML code
 
 	<a href="http://s01.de/~gottox/index.cgi/proj_smu">smu - simple mark up</a></p>
 
@@ -102,6 +102,13 @@ To make a link to the location in the page, use
 which results in
 
 	<a href="#myheader" id="myheader">myheader</a>
+
+To include an image, use
+
+	![alt text](https://link.to/image.png "title")
+
+which results in
+	<img src="https://link.to/image.png" alt="alt text" title="title" />
 
 Lists
 -----
@@ -204,6 +211,3 @@ Other interesting stuff
   	here.
   	But here is  
   	one.
-
-embed HTML
-----------
