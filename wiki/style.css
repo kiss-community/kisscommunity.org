@@ -46,6 +46,9 @@ blockquote::before {
 h1, h2, h3, h4 {
 	margin: 1em 1ex 0.5ex 0;
 }
+h2 ~ *:not(h2) {
+    margin-left: 1ch;
+}
 #content {
 	clear: both;
 	margin: 0;
