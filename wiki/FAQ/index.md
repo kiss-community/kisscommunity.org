@@ -39,16 +39,17 @@ could contribute it to this page.
 
 ### [%[011]] Busybox diff given unrecognized options
 These are not causing the build to fail; they are only warnings.
+
 ### [%[012]] Errors about `__always_inline`, versions 5.12-5.18
 Kernels with minor version 5.12-5.18 require the following patch to add an include:
 
 	$ sed -i '/<stdlib.h>/a #include <linux/stddef.h>' tools/objtool/arch/x86/decode.c
 
-### [%[013]] `env: can't execute 'bash': No such file or directory`, version 5.19
-Kernels version 5.19 and 6.0 currently require bash to be built. There is a
+### [%[013]] `env: can't execute 'bash': No such file or directory`, versions 5.19 and 6.0
+Kernels version 5.19 and 6.0 require bash to be built. There is a
 patch by [$/ioraff](https://codeberg.org/ioraff) available
 [here](https://codeberg.org/kiss-community/repo/issues/79) to remove this dependency.
-
+Kernels 6.1 and later have had the patch merged into them already.
 
 ## [%[020]] Kernel config/boot problems
 
