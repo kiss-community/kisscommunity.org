@@ -53,8 +53,18 @@ Kernels 6.1 and later have had the patch merged into them already.
 
 ## [%[020]] Kernel config/boot problems
 
-### [%[021]] Filesystem drivers
-Make sure you've enabled drivers for at least your boot and root filesystems.
+The kernel not booting can be a variety of issues. This is almost always
+related to a configuration issue in the kernel or the bootloader.
+
+KISS doesn't use an initramfs by default so the configuration of the kernel
+may have different requirements from other distributions.
+
+### [%[021]] Essential drivers
+Make sure you've enabled drivers for at least your boot and root filesystems,
+disk controller, and drives. They should be set to `=y` in your .config or `[*]`
+when using make menuconfig. Essentially, every driver the kernel requires to
+detect and mount the drive containing the root filesystem, must be built as a
+part of the kernel binary (rather than as modules).
 
 ### [%[022]] Including firmware
 Choose some location, such as `/usr/lib/firmware` and install the firmware you need into it.
@@ -63,3 +73,30 @@ the filenames relative to this directory for everything you want to use.
 See [kernel/firmware](/kernel/firmware/) for details.
 
 Firmware problems are most easily diagnosed by looking through `dmesg`.
+
+### [%[023]] initramfs
+KISS technically supports booting via an initramfs, it just doesn't require
+or provide one. As a user you have the means to set this up yourself for
+your system. A simple one is [tinyramfs](https://github.com/illiliti/tinyramfs).
+
+Full disk encryption is also possible without the use of an initramfs in
+modern kernels (see `dm-mod.create`).
+
+## [%[100]] Software
+
+### [%[110]] Is *SOFTWARE* packaged?
+
+To quickly check through all the KISS repositories which exist, you can use the
+`kiss-find` tool:
+
+    $ kiss find music
+    gnome-music          42.1 1        https://github.com/mdartmann/mkiss.git        gnome/gnome-music         main    "Mae Dartmann"
+    io.elementary.music  5.0.5 1       https://github.com/eudaldgr/elementaKISS.git  apps/io.elementary.music  master  "Eudald Gubert i Roldan"
+    texlive-music        2022.62533 1  https://github.com/ehawkvu/kiss-tex.git       texlive/texlive-music     master  "Ethan"
+    zmusic               1.1.8 1       https://github.com/sdsddsd1/kiss-games.git    equipment/zmusic          master  "Claudia"
+
+kiss-find is packaged in the community repo, or available [here](https://github.com/aabacchus/kiss-find).
+
+### [%[120]] Can you package *SOFTWARE* for me?
+
+Do it yourself!
