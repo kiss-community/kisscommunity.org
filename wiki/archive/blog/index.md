@@ -1,0 +1,36 @@
+# BLOG
+
+- [20190827a](20190827a/) - Python 2 will never die
+- [20190828a](20190828a/) - Firefox 69 now fully depends on dbus
+- [20190828b](20190828b/) - Why does GTK3 Firefox require GTK2?
+- [20191004a](20191004a/) - I've gone to great lengths for this silence
+- [20191117a](20191117a/) - This week in KISS (#1)
+- [20191124a](20191124a/) - This week in KISS (#2)
+- [20191202a](20191202a/) - This week in KISS (#3)
+- [20191211a](20191211a/) - This week in KISS (#4)
+- [20200102a](20200102a/) - This week in KISS (#5)
+- [20200111a](20200111a/) - This week in KISS (#6)
+- [20200118a](20200118a/) - This week in KISS (#7)
+- [20200125a](20200125a/) - This week in KISS (#8)
+- [20200202a](20200202a/) - This week in KISS (#9)
+- [20200209a](20200209a/) - This week in KISS (#10)
+- [20200217a](20200217a/) - This week in KISS (#11)
+- [20200218a](20200218a/) - https://k1ss.org
+- [20200224a](20200224a/) - This week in KISS (#12)
+- [20200303a](20200303a/) - This week in KISS (#13)
+- [20200309a](20200309a/) - This week in KISS (#14)
+- [20200316a](20200316a/) - This week in KISS (#15)
+- [20200325a](20200325a/) - This week in KISS (#16)
+- [20200426a](20200426a/) - This month in KISS (#1)
+- [20200509a](20200509a/) - KISS turns 1!
+- [20200525a](20200525a/) - This month in KISS (#2)!
+- [20200625a](20200625a/) - This month in KISS (#3)!
+- [20200803a](20200803a/) - This month in KISS (#4)!
+- [20200903a](20200903a/) - This month in KISS (#5)!
+- [20210223a](20210223a/) - Where Do We Go From Here?
+- [20210308a](20210308a/) - This month in KISS (#6)!
+- [20210401a](20210401a/) - This month in KISS (#7)!
+- [20210512a](20210512a/) - This month in KISS (#8)!
+- [20210609a](20210609a/) - This month in KISS (#9)!
+- [20210702a](20210702a/) - This month in KISS (#10)!
+- [20210711a](20210711a/) - KISS LINUX
