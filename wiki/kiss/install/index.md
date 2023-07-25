@@ -19,7 +19,7 @@ libera.chat) and ask.
 You should start with the updated rootfs tarball from the
 [latest release](https://codeberg.org/kiss-community/repo/releases) which is
 currently
-[22.11.15](https://codeberg.org/kiss-community/repo/releases/tag/22.11.15).
+[23.04.30](https://codeberg.org/kiss-community/repo/releases/tag/23.04.30).
 Make sure you extract it *as root*. The tarball is not signed so step 004
 doesn't apply. You should still verify the checksums though.
 
