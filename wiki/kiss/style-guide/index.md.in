@@ -7,25 +7,8 @@ Community repository adheres to this style guide.
 
 NOTE: Exceptions are made where it makes sense.
 
-## Index
 
-- [MAINTAINERSHIP](#MAINTAINERSHIP)
-- [GENERAL](#GENERAL)
-- [BUILD](#BUILD)
-  - [GNU AUTOTOOLS](#GNU AUTOTOOLS)
-  - [MESON](#MESON)
-  - [CMAKE](#CMAKE)
-  - [MAKE](#MAKE)
-  - [RUST](#RUST)
-  - [GO](#GO)
-  - [PYTHON](#PYTHON)
-- [DEPENDS](#DEPENDS)
-- [SOURCES](#SOURCES)
-- [VERSION](#VERSION)
-- [PATCHES](#PATCHES)
-
-
-## %[MAINTAINERSHIP]
+## MAINTAINERSHIP
 
 * Each package has a set maintainer stored via git commits. Use 'git log' or
   'kiss-maintainer pkg' to find the maintainer's contact information.
@@ -43,7 +26,7 @@ NOTE: Exceptions are made where it makes sense.
   the repositories.
 
 
-## %[GENERAL]
+## GENERAL
 
 
 %[0000]
@@ -65,7 +48,7 @@ suffix '-git'. The version of git packages must also be set to 'git'.
 
 
 
-## %[BUILD]
+## BUILD
 
 
 %[0200]
@@ -207,7 +190,7 @@ Always use `printf`. Do not use `echo`.
 
 
 
-### %[GNU AUTOTOOLS]
+### GNU AUTOTOOLS
 
 
 %[0400]
@@ -233,7 +216,7 @@ autogen.sh or autoreconf are required, prefer autoreconf.
 
 
 
-### %[MESON]
+### MESON
 
 
 %[0600]
@@ -252,7 +235,7 @@ Use the following style:
 
 
 
-### %[CMAKE]
+### CMAKE
 
 
 %[0800]
@@ -270,7 +253,7 @@ Use the following style:
 
 
 
-### %[MAKE]
+### MAKE
 
 
 %[1000]
@@ -318,7 +301,7 @@ prefer this style.
 
 
 
-### %[RUST]
+### RUST
 
 
 %[1050]
@@ -331,7 +314,7 @@ Use the following style:
 
 
 
-### %[GO]
+### GO
 
 
 %[1100]
@@ -356,7 +339,7 @@ source, the preferred method is to omit GOPATH and GO111MODULE and use:
 
 to prevent cluttering $HOME and enable offline building.
 
-### %[PYTHON]
+### PYTHON
 
 
 %[1150]
@@ -368,7 +351,7 @@ Use the following style:
 
 
 
-## %[DEPENDS]
+## DEPENDS
 
 
 %[1201]
@@ -407,7 +390,7 @@ If depends file is empty, then it must be removed.
 
 
 
-## %[SOURCES]
+## SOURCES
 
 
 %[1401]
@@ -436,7 +419,7 @@ Drop www. and .git from all sources if possible.
 
 
 
-## %[VERSION]
+## VERSION
 
 
 %[1601]
@@ -458,7 +441,7 @@ The version file must contain relative version number.
 
 
 
-## %[PATCHES]
+## PATCHES
 
 
 %[1800]
