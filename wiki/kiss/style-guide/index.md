@@ -242,10 +242,10 @@ Use the following style:
 
     export DESTDIR="$1"
     
-    meson \
-        --prefix=/usr \
+    meson setup \
+        -Dprefix=/usr \
         -Dexample=false \
-        . output
+        output
     
     ninja -C output
     ninja -C output install
