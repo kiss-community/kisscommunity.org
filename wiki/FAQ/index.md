@@ -105,3 +105,7 @@ Do it yourself!
 
 You lack the correct drivers.
 Using PS/2 mouse and keyboard drivers however, seems to be what works for most users.
+
+### [%[140]] Can I create a KISS linux live USB?
+
+yes, you can. Have a look at [kiss-community/kiss-live](https://github.com/kiss-community/kiss-live).
