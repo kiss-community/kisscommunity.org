@@ -100,3 +100,8 @@ kiss-find is packaged in the community repo, or available [here](https://github.
 ### [%[120]] Can you package *SOFTWARE* for me?
 
 Do it yourself!
+
+### [%[130]] Why isnt my mouse/keyboard working on tinyx?
+
+You lack the correct drivers.
+Using PS/2 mouse and keyboard drivers however, seems to be what works for most users.
