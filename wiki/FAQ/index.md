@@ -108,7 +108,7 @@ Using PS/2 mouse and keyboard drivers however, seems to be what works for most u
 
 ### [%[140]] Can I create a KISS linux live USB?
 
-yes, you can. Have a look at [kiss-community/kiss-live](https://github.com/kiss-community/kiss-live).
+Yes, you can. Have a look at [kiss-community/kiss-live](https://github.com/kiss-community/kiss-live).
 
 ### [%[150]] Can I use LLVM instead of gcc?
 
