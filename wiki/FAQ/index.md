@@ -106,11 +106,14 @@ Do it yourself!
 You lack the correct drivers.
 Using PS/2 mouse and keyboard drivers however, seems to be what works for most users.
 
-### [%[140]] Can I create a KISS linux live USB?
-
-Yes, you can. Have a look at [kiss-community/kiss-live](https://github.com/kiss-community/kiss-live).
-
-### [%[150]] Can I use LLVM instead of gcc?
+### [%[140]] Can I use LLVM instead of gcc?
 
 Yes you can. You can use [konimex/kiss-llvm](https://github.com/konimex/kiss-llvm) as a reference to bootstrap llvm on a gcc system.
 To build kernel with `llvm`, you would need to pass `make LLVM=1 LLVM_IAS=1`.
+
+## [%[200]] Misc
+
+### [%[210]] Can I create a KISS linux live USB?
+
+Yes, you can. Have a look at [kiss-community/kiss-live](https://github.com/kiss-community/kiss-live).
+
