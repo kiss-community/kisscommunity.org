@@ -7,6 +7,7 @@ whatever you like. A repository of X software is maintained at
 
 - [keyboard-layout](keyboard-layout/)
 - [sx](sx/)
+- [tinyx](tinyx/)
 - [x11-forwarding](x11-forwarding/)
 - [x11vnc](x11vnc/)
 - [xinit](xinit/)
