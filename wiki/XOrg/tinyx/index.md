@@ -6,9 +6,7 @@ Tinyx is a fork of `xorg-server` v1.2.0 and runs of off the framebuffer.
 
 Make sure you have the [ehawkvu/kiss-xorg](https://github.com/ehawkvu/kiss-xorg) repos in your $KISS_PATH.
 
-``
-	kiss build tinyx
-``
+    kiss build tinyx
 
 ###  sx
 
@@ -16,9 +14,7 @@ We also need `sx` to be able to launch tinyx.
 Please refer to [sx](/XOrg/sx/) for how to setup sx.
 We also need to make minor modifications to `sx`, to be able to launch tinyx.
 
-``
-	sed -i 's/Xorg/Xfbdev/';'s/-keeptty//' /usr/bin/sx
-``
+    sed -i 's/Xorg/Xfbdev/';'s/-keeptty//' /usr/bin/sx
 
 ### Superkey
 
