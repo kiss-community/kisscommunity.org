@@ -55,6 +55,9 @@ Kernels 6.1 and later have had the patch merged into them already.
 
 The kernel not booting can be a variety of issues. This is almost always
 related to a configuration issue in the kernel or the bootloader.
+The [Gentoo
+wiki](https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Kernel/en#Enabling_support_for_typical_system_components)
+is useful for kernel configuration help.
 
 KISS doesn't use an initramfs by default so the configuration of the kernel
 may have different requirements from other distributions.
@@ -66,7 +69,12 @@ when using make menuconfig. Essentially, every driver the kernel requires to
 detect and mount the drive containing the root filesystem, must be built as a
 part of the kernel binary (rather than as modules).
 
-### [%[022]] Including firmware
+### [%[022]] Boot stopped at "Loading Linux-X.Y.Z..."
+You've almost certainly forgotten a driver, probably for the framebuffer
+(at least `CONFIG_FB` and `CONFIG_FB_EFI` or `CONFIG_FB_VESA` depending on your
+boot system).
+
+### [%[023]] Including firmware
 Choose some location, such as `/usr/lib/firmware` and install the firmware you need into it.
 This alone isn't enough; you need to tell the kernel the directory where to find firmware, and
 the filenames relative to this directory for everything you want to use.
@@ -74,7 +82,7 @@ See [kernel/firmware](/kernel/firmware/) for details.
 
 Firmware problems are most easily diagnosed by looking through `dmesg`.
 
-### [%[023]] initramfs
+### [%[024]] initramfs
 KISS technically supports booting via an initramfs, it just doesn't require
 or provide one. As a user you have the means to set this up yourself for
 your system. A simple one is [tinyramfs](https://github.com/illiliti/tinyramfs).
