@@ -28,7 +28,7 @@ char *html_header =
     "</head>\n";
 
 char *html_nav_bar = "\t<span class=\"right\">\n"
-                     "\t\t<a href=\"https://github.com/kiss-community\">Github</a>\n"
+                     "\t\t<a href=\"/cgi-bin/search\">Search</a>\n"
                      "\t\t<a href=\"https://codeberg.org/kiss-community\">Codeberg</a>\n"
                      "\t\t<a href=\"https://kisslinux.org\">Official site</a>\n"
                      "\t</span>\n";
