@@ -13,7 +13,7 @@ htmlclean:
 	-find wiki -type d -exec rmdir {} \; 2>/dev/null
 
 db.sqlite:
-	tclsh update_db.tcl
+	tclsh8.6 update_db.tcl
 
 build-page: build-page.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ build-page.c

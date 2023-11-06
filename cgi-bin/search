@@ -110,8 +110,9 @@ if {0==[catch main res]} {
 
 puts "Status: $::status\r"
 puts "Content-Type: text/html\r"
-puts "Content-Length: [string bytelength $document]\r"
+puts "Content-Length: [string length $document]\r"
 puts "\r"
 puts $document
 flush stdout
 close stdout
+exit
