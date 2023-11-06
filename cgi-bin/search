@@ -99,7 +99,7 @@ if {0==[catch main res]} {
 	set document "<!DOCTYPE html><html><head><meta charset=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>$::title</title><link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/><link rel=\"icon\" href=\"data:image/gif;base64,R0lGODlhEAAQAPEDAAAAAP8AAP///wAAACH5BAX//wMALAAAAAAQABAAAAImnB+ni8kf4mNRzmbvqE5zPQDiqI3kBQhmqZ5TuqKtyMavCZT4UgAAOw==\"/></head>"
 	append document {<body><div id="menu"><a href="/"><b>KISS Community Wiki</b></a>
         <span class="right">
-                <a href="https://github.com/kiss-community">Github</a>
+                <a href="/cgi-bin/search">Search</a>
                 <a href="https://codeberg.org/kiss-community">Codeberg</a>
                 <a href="https://kisslinux.org">Official site</a>
         </span></div><div id="content"><div id="main">
