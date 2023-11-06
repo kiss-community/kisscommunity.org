@@ -1,4 +1,4 @@
-#!/usr/bin/env tclsh8.6
+#!/usr/local/bin/tclsh8.6
 # This script is run in the post-receive hook.
 
 package require sqlite3

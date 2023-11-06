@@ -1,4 +1,4 @@
-#!/usr/bin/env tclsh8.6
+#!/usr/local/bin/tclsh8.6
 
 proc htmlize str {
 	string map {< &lt; > &gt; \x22 &quot; \x26 &amp;} $str
