@@ -1,0 +1,117 @@
+#!/usr/bin/env tclsh8.6
+
+proc htmlize str {
+	string map {< &lt; > &gt; \x22 &quot; \x26 &amp;} $str
+	string map {< &lt; > &gt; \x22 &quot; \x26 &amp;} $str
+}
+
+proc url-decode str {
+	# adapted from https://wiki.tcl-lang.org/page/url%2Dencoding
+    set str [string map [list + { }] $str]
+	
+    set pos 0
+	while { -1 != [set pos [string first "%" $str $pos]]} {
+		set hexNumber "[string range $str $pos+1 $pos+2]"
+		set str [string range $str 0 $pos-1][binary decode hex $hexNumber][string range $str $pos+3 end]
+		incr pos
+	}
+	return [encoding convertfrom utf-8 $str]
+}
+
+proc query {db q} {
+	set e {select list(path, snippet(files, 0, '<b>', '</b>', '', 40), snippet(files, 1, '<b>', '</b>', '&nbsp;…&nbsp;', 40)) from files where files MATCH :q ORDER BY RANK LIMIT 200;}
+	if {[catch { set ll [$db eval $e] }]} {
+		set x ""
+		foreach word [split $q " "] {
+			append x " \"[string map [list "\"" "\"\""] $word]\""
+		}
+		set q [string trim $x]
+		set ll [$db eval $e]
+	}
+	return $ll
+}
+
+proc format_results {r t} {
+	set x ""
+	append x "<p>[llength $r] results in $t</p>"
+	if {[llength $r] == 0} {
+		append x "<p>No results.</p>"
+		return $x
+	}
+	append x {<table border=0>}
+	foreach res $r {
+		lassign $res path title snippet
+		append x "<tr><td><a href=\"$path\">$title</a><br /><p>$snippet<td></tr>\n"
+	}
+	append x {</table>}
+	return $x
+}
+
+proc main {} {
+	set t0 [clock milliseconds]
+	set doc {}
+
+	if {[info exists ::env(QUERY_STRING)]} {
+		set qs [split $::env(QUERY_STRING) &]
+		foreach q $qs {
+			lassign [split $q =] key val
+			if {$key == "query"} {
+				set searchterm $val
+				break
+			}
+		}
+	}
+
+	if {![info exists searchterm] || $searchterm eq {}} {
+		# no query, print plain searchbox
+		set ::status "200 OK"
+		set ::title Search
+		return {<h1>Search</h1><p><form><input type="text" name="query" /><input type="submit" value="Search" /></form></p>}
+	}
+
+	set searchterm [url-decode $searchterm]
+	set htmlsearchterm [htmlize $searchterm]
+
+	# do the search
+	package require sqlite3
+	sqlite3 db -create false "../db.sqlite"
+	db function list ::list
+	db timeout 2000 ;# does this do anything?
+
+	set results [query db $searchterm]
+	db close
+
+	set t1 [clock milliseconds]
+	set t "[expr {($t1-$t0)/1000.}]s"
+
+	set ::status "200 OK"
+	set ::title "$htmlsearchterm - search results"
+	set doc "<p>Search results for: <b>$htmlsearchterm</b></p><p><form><input type=\"text\" name=\"query\" value=\"$htmlsearchterm\" /><input type=\"submit\" value=\"Search\" /></form></p>"
+
+	append doc [format_results $results $t]
+	return $doc
+}
+
+if {0==[catch main res]} {
+	set document "<!DOCTYPE html><html><head><meta charset=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>$::title</title><link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/><link rel=\"icon\" href=\"data:image/gif;base64,R0lGODlhEAAQAPEDAAAAAP8AAP///wAAACH5BAX//wMALAAAAAAQABAAAAImnB+ni8kf4mNRzmbvqE5zPQDiqI3kBQhmqZ5TuqKtyMavCZT4UgAAOw==\"/></head>"
+	append document {<body><div id="menu"><a href="/"><b>KISS Community Wiki</b></a>
+        <span class="right">
+                <a href="https://github.com/kiss-community">Github</a>
+                <a href="https://codeberg.org/kiss-community">Codeberg</a>
+                <a href="https://kisslinux.org">Official site</a>
+        </span></div><div id="content"><div id="main">
+	}
+	append document $res {</div></div></body></html>}
+} else {
+	set ::status 500
+	set ::title Error
+	set document "<!DOCTYPE html><pre>Error: $res</pre>"
+}
+
+puts "Status: $::status\r"
+puts "Content-Type: text/html\r"
+puts "Content-Length: [string bytelength $document]\r"
+puts "\r"
+puts $document
+flush stdout
+close stdout
