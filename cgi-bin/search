@@ -18,7 +18,8 @@ proc url-decode str {
 	return [encoding convertfrom utf-8 $str]
 }
 
-proc query {db q} {
+proc query {db} {
+	set q $::searchterm
 	set e {select list(path, snippet(files, 0, '<b>', '</b>', '', 40), snippet(files, 1, '<b>', '</b>', '&nbsp;…&nbsp;', 40)) from files where files MATCH :q ORDER BY RANK LIMIT 200;}
 	if {[catch { set ll [$db eval $e] }]} {
 		set x ""
@@ -26,6 +27,7 @@ proc query {db q} {
 			append x " \"[string map [list "\"" "\"\""] $word]\""
 		}
 		set q [string trim $x]
+		set ::searchterm $q
 		set ll [$db eval $e]
 	}
 	return $ll
@@ -56,21 +58,20 @@ proc main {} {
 		foreach q $qs {
 			lassign [split $q =] key val
 			if {$key == "query"} {
-				set searchterm $val
+				set ::searchterm $val
 				break
 			}
 		}
 	}
 
-	if {![info exists searchterm] || $searchterm eq {}} {
+	if {![info exists ::searchterm] || $::searchterm eq {}} {
 		# no query, print plain searchbox
 		set ::status "200 OK"
 		set ::title Search
 		return {<h1>Search</h1><p><form><input type="text" name="query" /><input type="submit" value="Search" /></form></p>}
 	}
 
-	set searchterm [url-decode $searchterm]
-	set htmlsearchterm [htmlize $searchterm]
+	set ::searchterm [url-decode $::searchterm]
 
 	# do the search
 	package require sqlite3
@@ -78,8 +79,10 @@ proc main {} {
 	db function list ::list
 	db timeout 2000 ;# does this do anything?
 
-	set results [query db $searchterm]
+	set results [query db]
 	db close
+
+	set htmlsearchterm [htmlize $::searchterm]
 
 	set t1 [clock milliseconds]
 	set t "[expr {($t1-$t0)/1000.}]s"
