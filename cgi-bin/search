@@ -115,7 +115,7 @@ puts "Status: $::status\r"
 puts "Content-Type: text/html\r"
 puts "Content-Length: [string length $document]\r"
 puts "\r"
-puts $document
+puts -nonewline $document
 flush stdout
 close stdout
 exit
