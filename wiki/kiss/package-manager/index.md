@@ -1,6 +1,6 @@
 # KISS Package Manager
 
-Some extra information which isn't available on <https://kisslinux.org/wiki/package-manager>.
+Some extra information which isn't available on [https://kisslinux.org/wiki/package-manager](https://web.archive.org/web/20231225090525/https://kisslinux.org/wiki/package-manager).
 
 ## [%[0.0]] Index
 
