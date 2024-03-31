@@ -4,7 +4,7 @@ KISS Linux Community Installation Guide
 Since Dylan is currently on a hiatus, the KISS community is maintaining a set
 of repos and a fork of the package manager. We have made enough minor changes
 to the system that some differences to the install process should be noted.
-Dylan's page (https://web.archive.org/web/20240224161212/https://kisslinux.org/install) is still the canonical
+Dylan's page (<https://web.archive.org/web/20240224161212/https://kisslinux.org/install>) is still the canonical
 reference. This page lists the differences to the official guide.
 
 If you run into any problems, please join us in IRC (`#kisslinux` in
