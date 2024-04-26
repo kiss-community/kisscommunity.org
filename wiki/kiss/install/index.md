@@ -1,7 +1,7 @@
 KISS Linux Community Installation Guide
 =======================================
 
-Since Dylan is currently on a hiatus, the KISS community is maintaining a set
+Since Dylan is on a (permanent) hiatus, the KISS community is maintaining a set
 of repos and a fork of the package manager. We have made enough minor changes
 to the system that some differences to the install process should be noted.
 Dylan's page (<https://kisslinux.github.io/install>) is still the canonical
