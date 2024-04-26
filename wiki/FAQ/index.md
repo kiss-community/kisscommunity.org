@@ -6,11 +6,11 @@ KISS documentation, but it can be spread out, hard to find, and easy to miss.
 Therefore, this page collects solutions to some of the most common problems.
 
 **This is not a substitute for a thorough reading of the
-[install guide](https://web.archive.org/web/20240224161212/https://kisslinux.org/install) and the appropriate
-[wiki](https://web.archive.org/web/20240207194458/https://kisslinux.org/wiki/) page.**
+[install guide](https://kisslinux.github.io/install) and the appropriate
+[wiki](https://kisslinux.github.io/wiki/) page.**
 
 This page does not answer questions about the philosophy of KISS, or why KISS
-is designed in any certain way. For those questions, refer to <https://kisslinux.org/answers>.
+is designed in any certain way. For those questions, refer to <https://kisslinux.github.io/answers>.
 
 ## [%[000]] General tips for identifying build errors
 

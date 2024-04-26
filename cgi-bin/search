@@ -101,7 +101,7 @@ if {0==[catch main res]} {
         <span class="right">
                 <a href="/cgi-bin/search">Search</a>
                 <a href="https://codeberg.org/kiss-community">Codeberg</a>
-                <a href="https://kisslinux.org">Official site</a>
+                <a href="https://kisslinux.github.io">Official site</a>
         </span></div><div id="content"><div id="main">
 	}
 	append document $res {</div></div></body></html>}

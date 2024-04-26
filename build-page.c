@@ -30,7 +30,7 @@ char *html_header =
 char *html_nav_bar = "\t<span class=\"right\">\n"
                      "\t\t<a href=\"/cgi-bin/search\">Search</a>\n"
                      "\t\t<a href=\"https://codeberg.org/kiss-community\">Codeberg</a>\n"
-                     "\t\t<a href=\"https://kisslinux.org\">Official site</a>\n"
+                     "\t\t<a href=\"https://kisslinux.github.io\">Official site</a>\n"
                      "\t</span>\n";
 
 char *html_footer = "</html>\n";

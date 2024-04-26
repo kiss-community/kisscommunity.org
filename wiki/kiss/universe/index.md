@@ -2,7 +2,7 @@
 
 ## Other implementations of kiss
 This doesn't include package managers for forks of the KISS operating system,
-such as Carbs and cpt. These are listed instead in [https://kisslinux.org/wiki/forks](https://web.archive.org/web/20220418162338/https://kisslinux.org/wiki/forks).
+such as Carbs and cpt. These are listed instead in <https://kisslinux.github.io/wiki/forks>.
 
 * kiss.el (elisp) <https://github.com/ehawkvu/kiss.el>
 * kiss-rs (rust) <https://codeberg.org/XDream8/kiss-rs>
