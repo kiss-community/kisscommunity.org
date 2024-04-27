@@ -71,8 +71,8 @@ part of the kernel binary (rather than as modules).
 
 ### [%[022]] Boot stopped at "Loading Linux-X.Y.Z..."
 You've almost certainly forgotten a driver, probably for the framebuffer
-(at least `CONFIG_FB` and `CONFIG_FB_EFI` or `CONFIG_FB_VESA` depending on your
-boot system).
+(at least `CONFIG_FB`, `CONFIG_FRAMEBUFFER_CONSOLE` and `CONFIG_FB_EFI` or `CONFIG_FB_VESA`
+depending on your boot system).
 
 ### [%[023]] Including firmware
 Choose some location, such as `/usr/lib/firmware` and install the firmware you need into it.
