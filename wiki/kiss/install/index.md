@@ -68,5 +68,8 @@ with ssh (only for `repo`). To enable verification, run:
 
 (Official guide step 018)
 
+`pkgconf` is used to detect `ncurses` when using menuconfig; install it with
+    $ kiss b pkgconf
+
 There are a number of patches which may need to be applied to the kernel
 depending on your version. Check the [FAQ page](/FAQ/#010) for details.
