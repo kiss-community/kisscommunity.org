@@ -9,3 +9,4 @@ such as Carbs and cpt. These are listed instead in <https://kisslinux.github.io/
 * bliss (Lua) <https://git.bvnf.space/bliss/>
 * kiss-ng (C/zig) <https://github.com/git-bruh/kiss-ng>
 * k (C) <https://github.com/dylanaraps/k>
+* king (Go) <https://github.com/illiliti/king>
