@@ -15,4 +15,7 @@ We're on IRC at #kisslinux on [libera.chat](irc://irc.libera.chat) ([logs are av
 - [Official website](https://kisslinux.github.io/)
 - [$/kisslinux](https://github.com/kisslinux)
 
+If you're installing KISS, refer to the [community install guide](kiss/install/)
+alongside the [official guide](https://kisslinux.github.io/install).
+
 You can contribute to this wiki! See [website/](website/) for details.
