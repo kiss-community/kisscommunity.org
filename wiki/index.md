@@ -10,8 +10,7 @@ We're on IRC at #kisslinux on [libera.chat](irc://irc.libera.chat) ([logs are av
 **WARNING**: the old `kisslinux.org` website seems to have been taken over by bad actors and although it looks similar to Dylan's pages (which have expired) they contain analytics and adverts. Dylan's website is now available here: <https://kisslinux.github.io/>
 
 - [$/kiss-community](https://codeberg.org/kiss-community)
-- [$/kiss-community/awesome-kiss](https://github.com/kiss-community/awesome-kiss)
-- [Community package listing](https://jedahan.com/kiss-find) ([updated tool](https://github.com/aabacchus/kiss-find))
+- [kiss-find](https://github.com/aabacchus/kiss-find): search for packages across community repositories
 - [Official website](https://kisslinux.github.io/)
 - [$/kisslinux](https://github.com/kisslinux)
 
