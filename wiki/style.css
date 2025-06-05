@@ -12,6 +12,9 @@ pre {
 	padding: 1ch;
 	overflow-x: auto;
 }
+blockquote, pre, code {
+	background-color: #eee;
+}
 a {
 	color: #069;
 }
@@ -120,12 +123,8 @@ img {
 	}
 	blockquote, pre, code {
 		background-color: #111;
-		border-color: #aaa;
 	}
 	a {
 		color: #6cf;
-	}
-	#main img[src$=svg] {
-		filter: invert(1);
 	}
 }
