@@ -1,6 +1,7 @@
 # KISS Package Manager
 
 Some extra information which isn't available on <https://kisslinux.github.io/wiki/package-manager>.
+See also [universe](../universe/) for other implementations of kiss.
 
 ## [%[0.0]] Index
 
