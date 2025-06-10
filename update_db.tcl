@@ -12,28 +12,39 @@ proc removespaces {content} {
 	regsub -all {[ \t\n]+} $content { }
 }
 
-set files [split [exec find wiki -name *.md -o -name *.txt] \n]
-
 sqlite3 db db.sqlite
 db eval {
 	DROP TABLE IF EXISTS files;
 	CREATE VIRTUAL TABLE IF NOT EXISTS files USING fts5(path, content, tokenize = "porter unicode61 tokenchars '&;'")
 }
 
+set files [split [exec find wiki -name index.md -o -name index.txt] \n]
+set dirs {}
 foreach path $files {
+	set dir [file dirname $path]
+	lappend dirs $dir
+}
+# remove duplicates (eg if both index.txt and index.md in same dir)
+set dirs [lsort -unique $dirs]
+
+foreach dir $dirs {
+	set path [file join $dir index.md]
+	set md 1
+	if {[file exists $path] != 1} {
+		set path [file join $dir index.txt]
+		set md 0
+	}
 	set fh [open $path r]
 	set content [read $fh]
 	set content [removespaces $content]
-	if {[string match *.md $path]} {
+	if $md {
 		# txts should already have chars escaped.
 		set content [htmlize $content]
 	}
 	close $fh
 
-	# ./wiki/foo/bar/index.xxx -> /foo/bar
-	set path [file join / {*}[lreplace [lreplace [file split $path] 0 0] end end]]
-	# remove duplicates (eg if both index.txt and index.md in same dir)
-	set path [lsort -unique $path]
+	# ./wiki/foo/bar -> /foo/bar
+	set path [file join / {*}[lreplace [file split $dir] 0 0]]
 	db eval {INSERT INTO files VALUES($path, $content)}
 }
 
