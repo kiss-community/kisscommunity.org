@@ -1,5 +1,8 @@
 # KISS Package System
 
+This is a version of <https://kisslinux.github.io/wiki/package-system>
+updated for the community version of kiss.
+
 Packages are comprised of a directory and the series of files contained within.
 The name of the package is derived from its directory name. The files which
 comprise the system are as follows.
