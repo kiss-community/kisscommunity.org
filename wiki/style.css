@@ -2,7 +2,7 @@ body {
 	font-family: sans-serif;
 	padding: 0;
 	margin: 0;
-	font-size: 16px;
+	font-size: 1rem;
 }
 pre, code {
 	margin: 0;
@@ -11,18 +11,13 @@ pre, code {
 pre {
 	padding: 1ch;
 	overflow-x: auto;
-}
-blockquote, pre, code {
-	background-color: #eee;
-}
-a {
-	color: #069;
+	border: 1px solid;
 }
 #nav a, #menu a {
 	text-decoration: none;
 }
-#nav a:hover {
-	background-color: #ddd;
+#nav a:hover, blockquote {
+	background-color: light-dark(#eee, #222);
 }
 blockquote::before {
 	float: left;
@@ -32,16 +27,13 @@ blockquote::before {
 }
 #menu {
 	clear: both;
-	color: #069;
 	overflow: hidden;
 	background-color: #17a;
 	padding: 0.7ex;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #069;
 }
 #menu a {
 	padding: 0.5ex 1ex;
-	color: #fff;
+	color: white;
 }
 #menu a:hover {
 	background-color: #069;
@@ -108,23 +100,5 @@ img {
 	}
 	#main {
 		margin: 0;
-	}
-}
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #000;
-		color: #fff;
-	}
-	#menu {
-		border-top: 1px solid #222;
-	}
-	#nav a:hover {
-		background-color: #222;
-	}
-	blockquote, pre, code {
-		background-color: #111;
-	}
-	a {
-		color: #6cf;
 	}
 }

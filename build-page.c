@@ -18,14 +18,16 @@
 
 char *html_header =
     "<!doctype html>\n"
-    "<html>\n"
+    "<html lang=\"en\">\n"
     "<head>\n"
     "\t<meta charset=\"utf-8\"/>\n"
     "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n"
+    "\t<meta name=\"color-scheme\" content=\"light dark\"/>\n"
     "\t<title>%s - KISS Community Wiki</title>\n"
     "\t<link rel=\"icon\" href=\"data:image/gif;base64,R0lGODlhEAAQAPEDAAAAAP8AAP///wAAACH5BAX//wMALAAAAAAQABAAAAImnB+ni8kf4mNRzmbvqE5zPQDiqI3kBQhmqZ5TuqKtyMavCZT4UgAAOw==\"/>\n"
     "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/style.css\"/>\n"
-    "</head>\n";
+    "</head>\n"
+    "<body>\n";
 
 char *html_nav_bar = "\t<span class=\"right\">\n"
                      "\t\t<a href=\"/cgi-bin/search\">Search</a>\n"
@@ -33,7 +35,7 @@ char *html_nav_bar = "\t<span class=\"right\">\n"
                      "\t\t<a href=\"https://kisslinux.github.io\">Official site</a>\n"
                      "\t</span>\n";
 
-char *html_footer = "</html>\n";
+char *html_footer = "</body></html>\n";
 
 void die_perror(char *fmt, ...) {
   va_list ap;
