@@ -1,28 +1,27 @@
-KISS GUIDESTONES
-________________________________________________________________________________
-
-Below are a set of notes which make KISS... KISS. I felt the need to define in
-as much detail as possible philosophy behind the distribution.
-
-There is no requirement to follow or even agree with my words. Some of the
-technical details for how packages are written will apply to package inclusion
-in the official repositories however.
-
-Bear in mind, I develop and release KISS for free. I owe you nothing. Any help
-I provide is at my own discretion. KISS is my gift to you from the love of what
-I do. I hope you find it as useful as I have.
-
-- Dylan Araps
-
-These guidestones will be in perpetuity. Until a sufficiently good reason to
-alter them is provided (such as security concerns, kernel requirements), these
-will continue to be the guiding principles behind the direction of KISS.
-
-- Dilyn Corner
+# KISS GUIDESTONES
 
 
-USERS
-________________________________________________________________________________
+> Below are a set of notes which make KISS... KISS. I felt the need to define in
+> as much detail as possible philosophy behind the distribution.
+>
+> There is no requirement to follow or even agree with my words. Some of the
+> technical details for how packages are written will apply to package inclusion
+> in the official repositories however.
+>
+> Bear in mind, I develop and release KISS for free. I owe you nothing. Any help
+> I provide is at my own discretion. KISS is my gift to you from the love of what
+> I do. I hope you find it as useful as I have.
+
+— Dylan Araps
+
+> These guidestones will be in perpetuity. Until a sufficiently good reason to
+> alter them is provided (such as security concerns, kernel requirements), these
+> will continue to be the guiding principles behind the direction of KISS.
+
+— Dilyn Corner
+
+
+## USERS
 
 * KISS is the vessel with which to shape your system in your own way and to
   optionally share your ideas with others.
@@ -47,8 +46,7 @@ ________________________________________________________________________________
   gain a better understanding over your system and take control. Be a doer.
 
 
-KISS
-________________________________________________________________________________
+## KISS
 
 * There must always be a sole commander-in-chief in charge of the distribution.
   There must never be a below governance structure.
@@ -79,7 +77,7 @@ ________________________________________________________________________________
 * All distribution tooling and shell code must be written in a portable way.
   Otherwise, the user will be locked into a single coreutils and shell.
 
-* One exception is made for 'sed -i' as it is too useful to let go of. The '-i'
+* One exception is made for `sed -i` as it is too useful to let go of. The `-i`
   flag has rather good support across implementations regardless.
 
 * Avoid the next new shiny thing until or unless certain that it brings real
@@ -96,8 +94,7 @@ ________________________________________________________________________________
   unto you.
 
 
-OFFICIAL REPOSITORIES
-________________________________________________________________________________
+## OFFICIAL REPOSITORIES
 
 * The number of packages in the repositories shall never exceed that which is
   maintainable by a single person with minimal effort.
@@ -124,7 +121,7 @@ ________________________________________________________________________________
 * Sources must use HTTPS where possible. If no HTTPS source is available one
   must be sought out or created by the BDFL of KISS.
 
-* Install files to '/usr/{bin,lib,share}' always. The singular directory
+* Install files to `/usr/{bin,lib,share}` always. The singular directory
   ensures simplicity and keeps KISS tooling and user scripts simple.
 
 * The following list of software must never make its way into the repositories
@@ -140,8 +137,7 @@ ________________________________________________________________________________
   feasible it must be patched out entirely.
 
 
-COMMUNITY REPOSITORIES
-________________________________________________________________________________
+## COMMUNITY REPOSITORIES
 
 * The community repository is maintained by the users of KISS. Each maintainer
   is responsible for the packages they have opted to add.
@@ -156,8 +152,7 @@ ________________________________________________________________________________
   like to report an out-of-date package or request changes.
 
 
-PACKAGE MANAGER
-________________________________________________________________________________
+## PACKAGE MANAGER
 
 * The package manager must not exceed 1000 lines of code. This number excludes
   blank lines and comments which make up around 50% of the program's current
@@ -176,8 +171,7 @@ ________________________________________________________________________________
 * Circular dependencies are a bug and not a feature. See: freetype-harfbuzz
 
 
-INIT SYSTEM
-________________________________________________________________________________
+## INIT SYSTEM
 
 * The user should not be tied to a single provider of PID 1. No unrelated piece
   of software should require a specific init be in use.
