@@ -70,7 +70,7 @@ coreutils in a single command.
 
     # The package manager will read each line from stdin.
     kiss a | grep ^coreutils | kiss a -
-
+    
     # Running 'kiss a' will show the inverse of the above listing,
     # a long output of 'busybox *'.
 

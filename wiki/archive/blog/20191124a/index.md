@@ -22,7 +22,7 @@ It has been a whole 6 months since I first started working on KISS!
     commit 0cda243d535f11e7c26b9182bc63e425deb5ba45
     Author: Dylan Araps <dylan.araps@gmail.com>
     Date:   Thu May 9 09:46:50 2019 +0300
-
+    
         new package manager experiment
 
 Assuming that I was the first user of KISS on hardware, Xorg, Firefox

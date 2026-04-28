@@ -27,7 +27,7 @@ This client is based around the fact that the `iwd` daemon watches the
 network files in its configuration directory.
 
     iwc 0.2.1 - simple eiwd client.
-
+    
     => [au]th       [ssid] - Create network config.
     => [co]nnect    [ssid] - Connect to an SSID.
     => [de]lete     [ssid] - Delete a configured network.

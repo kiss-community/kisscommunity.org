@@ -27,7 +27,7 @@ Source format:
 
     # git+URL
     git+https://github.com/dylanaraps/eiwd
-
+    
     # git+URL#hash
     git+https://github.com/dylanaraps/eiwd#4a2d30bd1b053a9f1e4373d17c2ae6f3ccbc4148
 
@@ -35,7 +35,7 @@ Version:
 
     # Simply use git.
     git
-
+    
     # Or use a hash if supplied to the source.
     4a2d30bd1b053a9f1e4373d17c2ae6f3ccbc4148
 

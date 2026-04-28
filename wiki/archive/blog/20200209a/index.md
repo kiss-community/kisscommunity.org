@@ -24,7 +24,7 @@ A simple script to set different `CFLAGS` for specific flags could look
 as follows.
 
     #!/bin/sh
-
+    
     case $TYPE in
         pre-build)
             case $PKG in
@@ -32,7 +32,7 @@ as follows.
                curl) export CFLAGS="-O3" ;;
             esac
         ;;
-
+    
         post-build)
             # post-build code here.
         ;;
