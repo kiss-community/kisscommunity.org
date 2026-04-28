@@ -43,7 +43,7 @@ There are several pattern you can use to highlight your text:
   You can produce inline code with surrounding `\`` or `\`\``
 
   	Use `rm -rf /` if you're a N00b.
-
+    
   	Use ``rm -rf /`` if you're a N00b.
 
   `\`\`ABC\`\`` makes it possible to use Backticks without backslashing them.

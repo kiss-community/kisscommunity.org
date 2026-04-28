@@ -65,13 +65,13 @@ NM=nm, RANLIB=ranlib`.
 Example shell-based build file:
 
     #!/bin/sh -e
-
+    
     # Disable stripping (use if needed).
     :> nostrip
-
+    
     ./configure \
         --prefix=/usr
-
+    
     make
     make install
 
@@ -99,7 +99,7 @@ field denotes the dependency type (unset for runtime, `make` for compile-time).
 
     alsa-lib
     meson make
-
+    
     # This is a comment.
     wayland
     wayland-protocols make
@@ -118,7 +118,7 @@ where supported by the remote server. If no suffix is used, master is cloned.
     # This is a comment.
     https://www.openssl.org/source/openssl-1.2.3.tar.gz
     https://causal.agency/libretls/libretls-3.3.3p1.tar.gz libretls
-
+    
     files/update-certdata.sh
     git+https://github.com/kisslinux/kiss@dev
 
@@ -144,7 +144,7 @@ be used to perform any required pre-removal steps or to display notices.
 Example shell-based pre-remove file (from `community/mdev-usb`):
 
     #!/bin/sh
-
+    
     delgroup usb
 
 
@@ -156,14 +156,14 @@ should be used to perform any required post-install steps or to display notices.
 Example shell-based post-install file:
 
     #!/bin/sh -e
-
+    
     cat <<EOF
-
+    
     The commands zcat, unpigz and gunzip were merely symbolic
     links to the pigz binary. They have been removed. To gain
     them back, create the symlinks (or use an alias or shell
     function).
-
+    
     EOF
 
 
