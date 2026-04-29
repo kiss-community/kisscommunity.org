@@ -68,7 +68,7 @@ proc main {} {
 		# no query, print plain searchbox
 		set ::status "200 OK"
 		set ::title Search
-		return {<h1>Search</h1><form><input type="text" name="query" /><input type="submit" value="Search" /></form>}
+		return {<h1>Search</h1><form><input type="text" name="query" aria-label="Query"/><input type="submit" value="Search" /></form>}
 	}
 
 	set ::searchterm [url-decode $::searchterm]
@@ -89,7 +89,7 @@ proc main {} {
 
 	set ::status "200 OK"
 	set ::title "$htmlsearchterm - search results"
-	set doc "<p>Search results for: <b>$htmlsearchterm</b></p><form><input type=\"text\" name=\"query\" value=\"$htmlsearchterm\" /><input type=\"submit\" value=\"Search\" /></form>"
+	set doc "<p>Search results for: <b>$htmlsearchterm</b></p><form><input type=\"text\" name=\"query\" value=\"$htmlsearchterm\" aria-label=\"Query\" /><input type=\"submit\" value=\"Search\" /></form>"
 
 	append doc [format_results $results $t]
 	return $doc
