@@ -13,10 +13,10 @@ pre {
 	overflow-x: auto;
 	border: 1px solid;
 }
-#nav a, #menu a {
+nav a, header a {
 	text-decoration: none;
 }
-#nav a:hover, blockquote {
+nav a:hover, blockquote {
 	background-color: light-dark(#eee, #222);
 }
 blockquote::before {
@@ -25,17 +25,17 @@ blockquote::before {
 	margin-right: 1ch;
 	content: ">";
 }
-#menu {
+header {
 	clear: both;
 	overflow: hidden;
 	background-color: #17a;
 	padding: 0.7ex;
 }
-#menu a {
+header a {
 	padding: 0.5ex 1ex;
 	color: white;
 }
-#menu a:hover {
+header a:hover {
 	background-color: #069;
 }
 h1, h2, h3, h4 {
@@ -44,36 +44,31 @@ h1, h2, h3, h4 {
 h2 ~ *:not(h2) {
     margin-left: 1ch;
 }
-#content {
-	clear: both;
-	margin: 0;
-	padding: 0;
-}
-#nav {
+nav {
 	float: left;
 	margin: 0 1px 0 0;
 	padding: 1em 0;
 	border-right: 1px dotted #ccc;
 	width: 200px;
 }
-#nav ul {
+nav ul {
 	margin: 0;
 	padding: 0;
 }
-#nav li {
+nav li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-#nav li ul {
+nav li ul {
 	padding-left: 0.6em !important;
 }
-#nav li a {
+nav li a {
 	display: block;
 	margin: 0;
 	padding: 0.8ex 2em 0.8ex 1em;
 }
-#main {
+main {
 	margin: 0 0 0 200px;
 	max-width: 50em;
 	padding: 1.5em;
@@ -92,13 +87,13 @@ img {
     max-width: 100%;
 }
 @media (max-width: 999px) {
-	#nav {
+	nav {
 		float: none;
 		margin: 0;
 		width: 100%;
 		border: none;
 	}
-	#main {
+	main {
 		margin: 0;
 	}
 }

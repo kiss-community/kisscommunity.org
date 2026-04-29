@@ -110,11 +110,11 @@ void print_name(const char *name) {
 }
 
 void print_nav_bar(void) {
-  puts("<div id=\"menu\">");
-  puts("\t<a href=\"/\"><b>KISS Community Wiki</b></a>\n");
+  puts("<header>");
+  puts("\t<a href=\"/\"><b>KISS Community Wiki</b></a>");
 
   fputs(html_nav_bar, stdout);
-  puts("</div>");
+  puts("</header>");
 }
 
 int qsort_strcmp(const void *a, const void *b) {
@@ -203,14 +203,14 @@ void menu_panel(char *page, char *this, int depth) {
 }
 
 void print_menu_panel(char *page) {
-  fputs("<div id=\"nav\">\n\t<ul>\n\t<li>", stdout);
+  fputs("<nav>\n\t<ul>\n\t<li>", stdout);
   if (!page)
     puts("<a href=\"/\"><b>Home</b></a></li>");
   else
     puts("<a href=\"/\">Home</a></li>");
   menu_panel(page, NULL, 0);
   puts("\t</ul>");
-  puts("</div>");
+  puts("</nav>");
 }
 
 void print_content(char *page) {
@@ -223,7 +223,7 @@ void print_content(char *page) {
   snprintf(indextxt, sizeof(indextxt), page ? "%2$s/%1$s" : "%s", "index.txt",
            page);
 
-  puts("<div id=\"main\">\n");
+  puts("<main>");
   if (stat_isfile(indexmd)) {
     fflush(stdout);
     if (spawn_wait(argv) == -1)
@@ -241,7 +241,7 @@ void print_content(char *page) {
     puts("</pre>");
   }
 
-  puts("</div>\n");
+  puts("</main>");
 }
 
 void print_footer(void) { fputs(html_footer, stdout); }
@@ -288,10 +288,8 @@ int main(int argc, char *argv[]) {
 
   printf(html_header, page ? page : "Home");
   print_nav_bar();
-  puts("<div id=\"content\">");
   print_menu_panel(page);
   print_content(page);
-  puts("</div>\n");
   print_footer();
 
   return 0;
